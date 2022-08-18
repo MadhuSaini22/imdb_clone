@@ -1,5 +1,5 @@
 .poster {
-  width: 800px;
+  width: 850px;
 }
 
 .posterImage > img {
@@ -7,7 +7,6 @@
   display: block;
   width: 100%;
 }
-
 
 .posterImage__overlay {
   position: absolute;
@@ -50,5 +49,13 @@
   margin-bottom: 0.25rem;
   text-align: left;
   width: 70%;
-
+}
+.headContainer {
+  display: flex;
+  flex-direction: column;
+}
+.desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

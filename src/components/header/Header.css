@@ -16,18 +16,15 @@ a > span{
     cursor: pointer;
     color: white;
 } */
-a{
+/* a{
     width:90px;
-}
-
+} */
+/* 
 .header__icon {
     width: 80px;
     cursor: pointer;
-}
+} */
 
-.user__avatar {
-    font-size: 2rem;
-}
 /* 
 input {
     width: 700px !important;

@@ -5,11 +5,11 @@
 }
 
 .container{
-  width:80% !important;
-  display: flex;
+  max-width:1286px !important;
   justify-content:space-between;
   align-items: center;
   margin: auto;
+  padding:0px;
 }
 .mainContainer{
   width:100%;
@@ -17,7 +17,7 @@
   
 }
 .downContainer{
-  width:80% !important;
+  max-width:1286px !important;
   display: flex;
   justify-content:space-between;
   align-items: center;

@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import Card from "../card/Card";
+import Card from "./Card";
 
 const ListCarousel = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -39,9 +39,9 @@ const ListCarousel = () => {
           </h2>
 
           <Swiper
-            slidesPerView={5}
-            spaceBetween={30}
-            slidesPerGroup={5}
+            slidesPerView={6}
+            spaceBetween={10}
+            slidesPerGroup={6}
             loopFillGroupWithBlank={true}
             navigation={true}
             modules={[Pagination, Autoplay, EffectFade, Navigation]}
@@ -56,7 +56,7 @@ const ListCarousel = () => {
                   <div className="flex flex-col">
                     <div className="posterImage ">
                       <img
-                        className="cards__img"
+                        className=""
                         src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         alt="img"
                       />
@@ -99,29 +99,7 @@ const ListCarousel = () => {
                 <Card movie={movie} />
               </SwiperSlide>
             ))}
-            {/* {popularMovies.map((movie) => (
-              <SwiperSlide>
-                <Link to={`/movie/${movie.id}`}>
-                  <div className="flex flex-col">
-                    <div className="posterImage ">
-                      <img
-                        src={`https://image.tmdb.org/t/p/original${
-                          movie ? movie.backdrop_path : ""
-                        }`}
-                        className="w-96"
-                        alt="img"
-                      />
-                    </div>
-
-                    <div className="">
-                      <div className="text-large">
-                        {movie ? movie.original_title : ""}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))} */}
+           
           </Swiper>
         </div>
       </div>

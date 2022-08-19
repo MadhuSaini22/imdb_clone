@@ -1,15 +1,11 @@
 .App{
   background-color: black;
   color:white;
-  font-family: sans-serif;
 }
 
 .container{
   max-width:1286px !important;
-  justify-content:space-between;
-  align-items: center;
   margin: auto;
-  padding:0px;
 }
 .mainContainer{
   width:100%;

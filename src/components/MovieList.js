@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card/Card";
-import "./MovieList.css";
+import Card from "./Card";
 import { useParams } from "react-router-dom";
 
 const MovieList = () => {
@@ -26,7 +25,7 @@ const MovieList = () => {
   };
   return (
     <div className="movie__list">
-      <h2 className="list__title">{(type ? type : "POPULAR").toUpperCase()}</h2>
+      <h2 className="list__title m-10 text-3xl">{(type ? type : "POPULAR").toUpperCase()}</h2>
       <div className="list__cards">
         {movieList.map((movie) => (
           <Card movie={movie} />

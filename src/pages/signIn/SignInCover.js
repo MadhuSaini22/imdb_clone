@@ -1,22 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ButtonComp from "../../components/ButtonComp";
-import InputComp from "../../components/InputComp";
+import logoImg from "../../assets/google.png"
+import { ChevronDownIcon } from "@heroicons/react/outline";
+
+// import { Link } from "react-router-dom";
+// import ButtonComp from "../../components/ButtonComp";
+// import InputComp from "../../components/InputComp";
 import LabelComp from "../../components/LabelComp";
-function SignInCover() {
+ function SignInCover() {
   return (
     <div className="downContainerMain h-screen bg-cover">
       <div className="container ">
         <div className=" w-full  justify-items-center  font-coverFont">
           <div className=" max-w-5xl flex bg-white m-5  !text-slate-800 mx-auto">
-            <div className=" w-5/12">
-              <LabelComp />
-              <LabelComp />
-              <LabelComp />
-              <LabelComp />
-              <LabelComp />
-              <LabelComp />
-            
+            <div className=" w-5/12 bg-slate-500 grid justify-center">
+                <p className="text-xl mt-7 m-auto font-bold">Sign in</p>
+              <LabelComp icon={logoImg} authName="Sign In with Google"/> 
+              <p className="flex">Show more options <ChevronDownIcon className="h-5"/></p>            
             </div>
             <div className=" w-6/12 text-xs  ">
               <div className="border-l border-slate-200 m-6 px-6">

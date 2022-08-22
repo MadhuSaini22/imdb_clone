@@ -24,6 +24,7 @@ const MovieList = () => {
       .then((data) => setMovieList(data.results));
   };
   return (
+    <div className="container">
     <div className="movie__list">
       <h2 className="list__title m-10 text-3xl">{(type ? type : "POPULAR").toUpperCase()}</h2>
       <div className="list__cards">
@@ -31,6 +32,7 @@ const MovieList = () => {
           <Card movie={movie} />
         ))}
       </div>
+    </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .App{
-  background-color: black;
   color:white;
+  background-color: black;
 }
 
 .container{
@@ -11,6 +11,9 @@
   width:100%;
   background-color: #121212;
   
+}
+.downContainerMain{
+  width:100%;
 }
 .downContainer{
   max-width:1286px !important;

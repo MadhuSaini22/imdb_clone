@@ -20,6 +20,7 @@ const Movie = () => {
   };
 
   return (
+    <div className="container">
     <div className="movie">
       <div className="movie__intro">
         <img
@@ -132,6 +133,7 @@ const Movie = () => {
             </>
           ))}
       </div>
+    </div>
     </div>
   );
 };

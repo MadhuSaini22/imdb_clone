@@ -17,8 +17,12 @@ module.exports = {
         dark: {
           900: "#111111",
           800: "#212325",
-          "desc":"#0B0B74"
+          "desc":"#0B0B74",
+          "forgot":"#006BC2",
         },
+        "cover":"#C7C7C7",
+       
+        "submit": "#F5D382",
         // primary:"#c5c5c5",
         // blue:{
         //   DEFAULT:"#02265656",
@@ -29,7 +33,8 @@ module.exports = {
       width: {
         100: "1284px",
         "poster" : "850px",
-        "c-full": "100%"
+        "c-full": "100%",
+        "coverDesc ": "50%",
       },
       backgroundImage: {
         "dark-gr":
@@ -41,7 +46,8 @@ module.exports = {
         "title-main": "20px;"
       },
       fontFamily:{
-        "body": ["'Roboto', sans-serif"],       
+        "body": ["'Roboto', sans-serif"],    
+        "coverFont": ["'Verdana', 'sans-serif'"]
       }
     },
   },

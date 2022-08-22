@@ -35,8 +35,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="headContainer">
-        <div className="posterContainer flex m-2">
+      <div className="downContainerMain ">
+        <div className="bg-black">
+        <div className="container">
+
+        <div className=" flex m-2">
           <div className="poster w-poster">
             <Swiper
               slidesPerView={1}
@@ -138,6 +141,8 @@ const Home = () => {
         </div>
         {/* <MovieList /> */}
         <ListCarousel />
+      </div>
+      </div>
       </div>
     </>
   );

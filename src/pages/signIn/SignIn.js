@@ -15,7 +15,7 @@ function SignIn() {
               alt="img"
             />
           </div>
-          <div className="max-w-sm border rounded px-7 m-5 py-6 border-slate-200 !text-slate-800 mx-auto">
+           <div className="max-w-sm border rounded px-7 m-5 py-6 border-slate-200 !text-slate-800 mx-auto">
             <div className="rounded  mb-2">
               <h2 className="text-3xl font-normal">Sign In</h2>
             </div>

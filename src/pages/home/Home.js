@@ -36,10 +36,10 @@ const Home = () => {
   return (
     <>
       <div className="downContainerMain ">
-        <div className="bg-black">
+        <div className="bg-black w-full h-full ">
         <div className="container">
 
-        <div className=" flex m-2">
+        <div className=" flex p-2">
           <div className="poster w-poster">
             <Swiper
               slidesPerView={1}

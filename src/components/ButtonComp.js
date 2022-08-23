@@ -6,8 +6,9 @@ function ButtonComp(props) {
       <button
         className={`${props.backColor}  border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
         type="submit"
+       
       >
-       {props.label}
+        {props.label}
       </button>
     </div>
   );

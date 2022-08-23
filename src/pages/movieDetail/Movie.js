@@ -50,8 +50,8 @@ const Movie = () => {
               {currentMovieDetail ? currentMovieDetail.tagline : ""}
             </div>
             <div className="movie__rating">
-              {currentMovieDetail ? currentMovieDetail.vote_average : ""}{" "}
-              <i class="fas fa-star" />
+              {currentMovieDetail ? currentMovieDetail.vote_average : ""}
+              <i className="fas fa-star" />
               <span className="movie__voteCount">
                 {currentMovieDetail
                   ? "(" + currentMovieDetail.vote_count + ") votes"

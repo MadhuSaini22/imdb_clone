@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 import ButtonComp from "../../components/ButtonComp";
-import InputComp from "../../components/InputComp";
+// import InputComp from "../../components/InputComp";
 function Register() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -51,7 +51,7 @@ function Register() {
                 alt="img"
               />
             </div>
-            <p className="text-black"> hello {error}</p>
+            {/* <p className="text-black"> hello {error}</p> */}
             {console.log(JSON.stringify(error))}
             {error && alert(JSON.stringify(error))}
             {/* {error && <alert>{error}} */}
@@ -73,7 +73,7 @@ function Register() {
                     Your name
                   </label>
                   <input
-                    class="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
+                   className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
                     placeholder="First and last name"
                     id="name"
                     type="text"
@@ -92,7 +92,7 @@ function Register() {
                     Email
                   </label>
                   <input
-                    class="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
+                    className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
                     id="email"
                     type="email"
                     ref={emailRef}
@@ -112,7 +112,7 @@ function Register() {
                     Password
                   </label>
                   <input
-                    class="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
+                    className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
                     placeholder="at least 8 characters"
                     id="password"
                     type="password"
@@ -134,7 +134,7 @@ function Register() {
                     Re-enter password
                   </label>
                   <input
-                    class="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
+                    className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
                     id="password"
                     type="password"
                     ref={passwordConfirmRef}
@@ -143,11 +143,13 @@ function Register() {
                 </div>
 
                 <div className=" mt-1 ">
-                  <ButtonComp
-                    disableProp={loading}
-                    backColor="bg-submit"
-                    label="Create your IMDb account"
-                  />
+                  <button
+                    className={`bg-submit border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
+                    type="submit"
+                    disabled={loading}
+                  >
+                    Create your IMDb account
+                  </button>
                 </div>
               </form>
 

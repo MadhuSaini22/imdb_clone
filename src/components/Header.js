@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MenuIcon } from "@heroicons/react/outline";
 import "../index.css";
+import { useAuth } from "../contexts/AuthContext";
 
 const Header = () => {
+  // let namelog;
+  // const { currentUser } = useAuth();
+  // if (currentUser) {
+  //   namelog = "contents";
+  // } else {
+  //   namelog = "hidden";
+  // }
   return (
     <div className="headerLeft ">
       <div className="flex justify-center items-center ">
@@ -23,7 +31,7 @@ const Header = () => {
             </div>
           </Link>
         </div>
-
+        {/* <div className={namelog}>logout</div> */}
         <div className="flex-1  relative">
           <input
             type="text"
@@ -52,7 +60,7 @@ const Header = () => {
                 width="24"
                 height="24"
                 xmlns="http://www.w3.org/2000/svg"
-                class="ipc-icon ipc-icon--watchlist ipc-button__icon ipc-button__icon--pre"
+                className="ipc-icon ipc-icon--watchlist ipc-button__icon ipc-button__icon--pre"
                 id="iconContext-watchlist"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -68,7 +76,7 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <Link to="/signIn">
+        <Link to="/signInCover">
           <div className="menuContainer  hover:bg-slate-800  m-2 py-2 px-4 rounded align-middle justify-center flex">
             <span className="text-sm font-semibold ">Sign In</span>
           </div>

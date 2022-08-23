@@ -1,9 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState, useRef } from "react";
 import ButtonComp from "../../components/ButtonComp";
-import InputComp from "../../components/InputComp";
+import { useAuth } from "../../contexts/AuthContext";
+
+import { Link, useNavigate } from "react-router-dom";
+// import InputComp from "../../components/InputComp";
 function SignIn() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      console.log(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value);
+      history("/");
+    } catch {
+      setError("Failed to log in");
+    }
+
+    setLoading(false);
+  }
   return (
     <div className="downContainerMain bg-white">
       <div className="container bg-white">
@@ -15,34 +38,60 @@ function SignIn() {
               alt="img"
             />
           </div>
-           <div className="max-w-sm border rounded px-7 m-5 py-6 border-slate-200 !text-slate-800 mx-auto">
-            <div className="rounded  mb-2">
-              <h2 className="text-3xl font-normal">Sign In</h2>
-            </div>
-            <div className="rounded  mb-3  mt-1">
-              <InputComp labelName={"Email"} />
-            </div>
-
-            <div className="rounded grid mb-6  mt-1 ">
-              <div className="justify-between flex">
-                <label for="" className="font-bold text-sm">
-                  Password
-                </label>
-                <Link to="/">
-                  <label
-                    for=""
-                    className="text-sm cursor-pointer hover:underline hover:decoration-amber-700 text-dark-forgot hover:text-amber-700"
-                  >
-                    Forgot your password?
-                  </label>
-                </Link>
+          {console.log(JSON.stringify(error))}
+            {error && alert(JSON.stringify(error))}
+          <div className="max-w-sm border rounded px-7 m-5 py-6 border-slate-200 !text-slate-800 mx-auto">
+            <form onSubmit={handleSubmit}>
+              <div className="rounded  mb-2">
+                <h2 className="text-3xl font-normal">Sign In</h2>
               </div>
 
-              <input class="w-full  text-slate-600 text-sm py-1 focus:border-amber-400 focus:border-2 px-2 border border-gray-400 rounded outline-none " />
-            </div>
-            <div className="rounded mb-4 border-slate-300 mt-1 shadow-sm">
-              <ButtonComp backColor="bg-submit" label="Sign-In" />
-            </div>
+              <div className="rounded  mb-3  mt-1">
+                <label for="" className=" font-bold text-sm">
+                  Email
+                </label>
+                <input
+                  className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
+                  id="email"
+                  type="email"
+                  ref={emailRef}
+                  required
+                />
+              </div>
+
+              <div className="rounded grid mb-6  mt-1 ">
+                <div className="justify-between flex">
+                  <label for="" className="font-bold text-sm">
+                    Password
+                  </label>
+                  <Link to="/">
+                    <label
+                      for=""
+                      className="text-sm cursor-pointer hover:underline hover:decoration-amber-700 text-dark-forgot hover:text-amber-700"
+                    >
+                      Forgot your password?
+                    </label>
+                  </Link>
+                </div>
+
+                <input
+                  className="w-full  text-slate-600 text-sm py-1 focus:border-amber-400 focus:border-2 px-2 border border-gray-400 rounded outline-none "
+                  id="password"
+                  type="password"
+                  ref={passwordRef}
+                  required
+                />
+              </div>
+              <div className="rounded mb-4 border-slate-300 mt-1 shadow-sm">
+                <button
+                  className={`bg-submit border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
+                  type="submit"
+                  disabled={loading}
+                >
+                  Sign-In
+                </button>
+              </div>
+            </form>
             <div className="rounded w-full text-sm mb-10 mt-1 ">
               <input
                 type="checkbox"

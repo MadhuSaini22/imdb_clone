@@ -1,21 +1,47 @@
 import React from "react";
-import logoImg from "../../assets/google.png"
+import logoImg from "../../assets/google.png";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 
 // import { Link } from "react-router-dom";
-// import ButtonComp from "../../components/ButtonComp";
+import ButtonComp from "../../components/ButtonComp";
 // import InputComp from "../../components/InputComp";
 import LabelComp from "../../components/LabelComp";
- function SignInCover() {
+function SignInCover() {
   return (
     <div className="downContainerMain h-screen bg-cover">
       <div className="container ">
         <div className=" w-full  justify-items-center  font-coverFont">
           <div className=" max-w-5xl flex bg-white m-5  !text-slate-800 mx-auto">
-            <div className=" w-5/12 bg-slate-500 grid justify-center">
+            <div className=" w-5/12  grid justify-center">
+              <div className="w-full mb-4">
                 <p className="text-xl mt-7 m-auto font-bold">Sign in</p>
-              <LabelComp icon={logoImg} authName="Sign In with Google"/> 
-              <p className="flex">Show more options <ChevronDownIcon className="h-5"/></p>            
+                <LabelComp icon={logoImg} authName="Sign In with Google" />
+                <LabelComp icon={logoImg} authName="Sign In with IMDb" />
+                <div className="flex justify-center">
+                  <p className="flex text-sm text-blue-700">
+                    Show more options <ChevronDownIcon className="h-5 mt-1" />
+                  </p>
+                </div>
+                <div className=" w-56 relative ml-7 flex justify-center border-t border-black my-5">
+                  <p className="top-0/4 -translate-y-2/4 text-gray-500 !mb-2 absolute bg-white text-xs  py-0 px-4">
+                    or
+                  </p>
+                </div>
+                <div className="rounded mb-4 border-slate-300 mt-1 shadow-sm">
+                  <button
+                    className=" bg-amber-400 font-bold text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900"
+                    type="submit"
+                  >
+                    Create a New Account
+                  </button>
+                </div>
+              </div>
+              <div className="flex w-64 text-xs text-center justify-center">
+                <p className="text-sm text-blue-700">
+                  By signing in, you agree to IMDb's Conditions of Use and
+                  Privacy Policy.
+                </p>
+              </div>
             </div>
             <div className=" w-6/12 text-xs  ">
               <div className="border-l border-slate-200 m-6 px-6">

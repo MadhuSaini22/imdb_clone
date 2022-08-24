@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
-import ButtonComp from "../../components/ButtonComp";
+// import Button from "../../components/Button";
 import { useAuth } from "../../contexts/AuthContext";
-
+import { btnvarient } from "../../staticValues";
 import { Link, useNavigate } from "react-router-dom";
-// import InputComp from "../../components/InputComp";
+import Button from "../../components/Button";
+// import Input from "../../components/Input";
 function SignIn() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -18,7 +19,7 @@ function SignIn() {
     try {
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value, passwordRef.current.value)
+      console.log(emailRef.current.value, passwordRef.current.value);
       await login(emailRef.current.value, passwordRef.current.value);
       history("/");
     } catch {
@@ -29,7 +30,7 @@ function SignIn() {
   }
   return (
     <div className="downContainerMain bg-white">
-      <div className="container bg-white">
+      <div className="max-w-container m-auto bg-white">
         <div className=" w-full justify-items-center  font-sans p-2">
           <div className=" mb-5  mt-2 grid  justify-center ">
             <img
@@ -39,7 +40,7 @@ function SignIn() {
             />
           </div>
           {console.log(JSON.stringify(error))}
-            {error && alert(JSON.stringify(error))}
+          {error && alert(JSON.stringify(error))}
           <div className="max-w-sm border rounded px-7 m-5 py-6 border-slate-200 !text-slate-800 mx-auto">
             <form onSubmit={handleSubmit}>
               <div className="rounded  mb-2">
@@ -83,13 +84,20 @@ function SignIn() {
                 />
               </div>
               <div className="rounded mb-4 border-slate-300 mt-1 shadow-sm">
-                <button
-                  className={`bg-submit border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
+                {/* <button
+                  className={`bg-yellowLight border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
                   type="submit"
                   disabled={loading}
+                  disabledProp={loading}
                 >
                   Sign-In
-                </button>
+                </button> */}
+                <Button
+                  label="Sign-In"
+                  disabledName={loading}
+                  varient={btnvarient.primary}
+                />
+                {console.log(btnvarient)}
               </div>
             </form>
             <div className="rounded w-full text-sm mb-10 mt-1 ">
@@ -108,7 +116,7 @@ function SignIn() {
               </p>
             </div>
             <div className=" mt-1 ">
-              <ButtonComp
+              <Button
                 backColor="bg-slate-200"
                 label=" Create your IMDB account"
               />

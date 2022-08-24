@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
-import ButtonComp from "../../components/ButtonComp";
-// import InputComp from "../../components/InputComp";
+import Button from "../../components/Button";
+// import Input from "../../components/Input";
 function Register() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -42,7 +42,7 @@ function Register() {
   return (
     <div>
       <div className="downContainerMain bg-white">
-        <div className="container bg-white">
+        <div className="max-w-container m-auto bg-white">
           <div className=" w-full justify-items-center  font-sans p-2">
             <div className=" mb-5  mt-2 grid  justify-center ">
               <img
@@ -62,7 +62,7 @@ function Register() {
                   {currentUser && currentUser.email}
                 </div>
                 {/* <div className="rounded  mb-3  mt-1"> */}
-                {/* <InputComp
+                {/* <Input
                     labelName={"Your name"}
                     placeholderValue={"First and last name"}
                     idName={"name"}
@@ -82,7 +82,7 @@ function Register() {
                 {/* /> */}
                 {/* </div> */}
                 <div className="rounded  mb-3  mt-1">
-                  {/* <InputComp
+                  {/* <Input
                     labelName={"Email"}
                     idName={"email"}
                     typeName={"email"}
@@ -101,7 +101,7 @@ function Register() {
                 </div>
 
                 <div className="rounded  mb-3  mt-1">
-                  {/* <InputComp
+                  {/* <Input
                     labelName={"Password"}
                     idName={"password"}
                     placeholderValue={"at least 8 characters"}
@@ -124,7 +124,7 @@ function Register() {
                   </p>
                 </div>
                 <div className="rounded  mb-3  mt-1">
-                  {/* <InputComp
+                  {/* <Input
                     labelName={"Re-enter password"}
                     typeName={"password"}
                     idName={"cpassword"}
@@ -144,7 +144,7 @@ function Register() {
 
                 <div className=" mt-1 ">
                   <button
-                    className={`bg-submit border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
+                    className={`bg-yellowLight  border-gray-400 text-sm w-full rounded border outline-none cursor-pointer h-8 text-slate-900`}
                     type="submit"
                     disabled={loading}
                   >

@@ -24,15 +24,17 @@ const MovieList = () => {
       .then((data) => setMovieList(data.results));
   };
   return (
-    <div className="container">
-    <div className="movie__list">
-      <h2 className="list__title m-10 text-3xl">{(type ? type : "POPULAR").toUpperCase()}</h2>
-      <div className="list__cards">
-        {movieList.map((movie) => (
-          <Card movie={movie} />
-        ))}
+    <div className="max-w-container m-auto ">
+      <div className="movie__list">
+        <h2 className="list__title m-10 text-3xl">
+          {(type ? type : "POPULAR").toUpperCase()}
+        </h2>
+        <div className="list__cards">
+          {movieList.map((movie) => (
+            <Card movie={movie} />
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

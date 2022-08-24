@@ -20,17 +20,23 @@ module.exports = {
           desc: "#0B0B74",
           forgot: "#006BC2",
         },
+        headerMain:"#121212",
         cover: "#B8B8B5",
-        downCover: "#E3E2DD",
-        submit: "#F5D382",
-        foot:"#EDEDEC",
+        // downCover: "#E3E2DD",
+        yellowLight : "#F5D382",
+        // foot:"#EDEDEC",
         // primary:"#c5c5c5",
         // blue:{
         //   DEFAULT:"#02265656",
         //   900:"#02265656",
         // }
       },
-
+      maxWidth:{
+        container:"1286px",
+      },
+      height:{
+        500:"500px",
+      },
       width: {
         100: "1284px",
         poster: "850px",
@@ -53,6 +59,7 @@ module.exports = {
       },
       boxShadow: {
         "input-focus": "0 0 3px 2px rgb(228 121 17 / 50%)",
+        "details" : "rgba(0, 0, 0, 0.86) 0px 22px 40px 6px",
       },
     },
   },

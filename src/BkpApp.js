@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Router>
         <div className="mainContainer">
-          <div className="container">
+          <div className="max-w-container m-auto ">
             <Header />
           </div>
         </div>

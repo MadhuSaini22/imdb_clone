@@ -1,17 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
 import "../index.css";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext"
+import { Link, useNavigate } from "react-router-dom";
+import PrivateRoute from "../PrivateRoute";
+// import { useAuth } from "../contexts/AuthContext";
 
 const Header = () => {
-  // let namelog;
-  // const { currentUser } = useAuth();
-  // if (currentUser) {
-  //   namelog = "contents";
-  // } else {
-  //   namelog = "hidden";
-  // }
+  const [error, setError] = useState("");
+  const { logout,currentUser } = useAuth();
+  const history = useNavigate();
+
+  async function handleLogout() {
+    setError("")
+    try {
+      await logout()
+      history("/signIn")
+    } catch {
+      setError("Failed to log out")
+    }
+  }
+
+  
   return (
     <div className="headerLeft ">
       <div className="flex justify-center items-center ">
@@ -31,7 +41,10 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        {/* <div className={namelog}>logout</div> */}
+        {/* {console.log(JSON.stringify(error))}
+            {error && alert(JSON.stringify(error))}
+       <div>{currentUser.email}</div> 
+        <button onClick={handleLogout} >logout</button> */}
         <div className="flex-1  relative">
           <input
             type="text"

@@ -1,29 +1,28 @@
 import React from "react";
 import logoImg from "../../assets/google.png";
 import { ChevronDownIcon } from "@heroicons/react/outline";
-
 import { Link } from "react-router-dom";
-import ButtonComp from "../../components/ButtonComp";
-// import InputComp from "../../components/InputComp";
-import LabelComp from "../../components/LabelComp";
+import Button from "../../components/Button";
+import LabelCard from "../../components/LabelCard";
+
 function SignInCover() {
   return (
     <div className="downContainerMain   bg-gradient-to-t from-gray-50 to-cover">
-      <div className="container ">
+      <div className="max-w-container m-auto ">
         <div className=" w-full  justify-items-center  font-coverFont">
           <div className=" max-w-5xl flex bg-white p-5  !text-slate-800 mx-auto">
             <div className=" w-5/12  grid justify-center">
               <div className="w-full mb-4 text-center">
                 <p className="text-xl mt-7 m-auto font-bold">Sign in</p>
                 <Link to="/signIn">
-                  <LabelComp
+                  <LabelCard
                     icon={
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
                     }
                     authName="Sign In with IMDb"
                   />
                 </Link>
-                <LabelComp icon={logoImg} authName="Sign In with Google" />
+                <LabelCard icon={logoImg} authName="Sign In with Google" />
                 <div className="flex mt-5 mb-7 justify-center text-sm">
                   <p className="flex  text-dark-forgot">
                     Show more options{" "}
@@ -46,15 +45,13 @@ function SignInCover() {
               </div>
               <div className="flex w-64 !text-xs text-center justify-center">
                 <p className=" text-xss">
-                  By signing in, you agree to IMDb's{" "}
+                  By signing in, you agree to IMDb's
                   <Link to="" className="cursor-pointer text-dark-forgot  ">
-                    {" "}
-                    Conditions{" "}
-                  </Link>{" "}
+                    Conditions
+                  </Link>
                   of Use and
                   <Link to="" className="cursor-pointer text-dark-forgot  ">
-                    {" "}
-                    Privacy Policy.{" "}
+                    Privacy Policy.
                   </Link>
                 </p>
               </div>

@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/home/Home";
@@ -8,19 +7,20 @@ import Register from "./pages/signIn/Register";
 import SignInCover from "./pages/signIn/SignInCover";
 import AuthLayout from "./layout/AuthLayout";
 import PublicLayout from "./layout/PublicLayout";
-import Test from "./Test";
 import SignIn from "./pages/signIn/SignIn";
 import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
-    <div className="App">
-      <div className="mainContainer">
-        <div className="container">
+    <div className="text-white">
+     
+      <AuthProvider>
+      <div className="w-full bg-headerMain">
+        <div className="max-w-container m-auto">
           <Header />
         </div>
       </div>
-      <AuthProvider>
       <Routes>
         {/* <Route
           path="/"

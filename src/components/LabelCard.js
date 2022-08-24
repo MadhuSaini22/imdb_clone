@@ -1,5 +1,5 @@
 import React from "react";
-function LabelComp({ icon, authName }) {
+function Label({ icon, authName }) {
   return (
     <div>
       <button className="border rounded m-3 p-1 flex justufy-center w-64 h-8 font-coverFont text-sm font-bold text-slate-600 border-slate-300">
@@ -12,4 +12,4 @@ function LabelComp({ icon, authName }) {
   );
 }
 
-export default LabelComp;
+export default Label;

@@ -1,27 +1,47 @@
 import React, { useState } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
 import "../index.css";
-import { useAuth } from "../contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import PrivateRoute from "../PrivateRoute";
-// import { useAuth } from "../contexts/AuthContext";
+// import PrivateRoute from "../PrivateRoute";
+import { ResultCard } from "./ResultCard";
 
 const Header = () => {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  const onChange = (e) => {
+    e.preventDefault();
+
+    setQuery(e.target.value);
+
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.errors) {
+          setResults(data.results);
+        } else {
+          setResults([]);
+        }
+      });
+  };
+
   const [error, setError] = useState("");
-  const { logout,currentUser } = useAuth();
+  const { logout, currentUser } = useAuth();
   const history = useNavigate();
 
   async function handleLogout() {
-    setError("")
+    setError("");
     try {
-      await logout()
-      history("/signIn")
+      await logout();
+      history("/signIn");
     } catch {
-      setError("Failed to log out")
+      setError("Failed to log out");
     }
   }
 
-  
   return (
     <div className="headerLeft ">
       <div className="flex justify-center items-center ">
@@ -41,31 +61,75 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        {/* {console.log(JSON.stringify(error))}
-            {error && alert(JSON.stringify(error))}
-       <div>{currentUser.email}</div> 
-        <button onClick={handleLogout} >logout</button> */}
+        {/* {console.log(JSON.stringify(error))} */}
+        {error && alert(JSON.stringify(error))}
+        {/* <div>{currentUser ? currentUser.email : ""}</div>
+        <button onClick={handleLogout}>logout</button> */}
         <div className="flex-1  relative">
-          <input
-            type="text"
-            className="text-sm focus:border-yellow-400 focus:border-2 px-2 placeholder:text-slate-500 text-black flex-1 w-full rounded h-8 outline-none border bg-right  m-1"
-            placeholder="Search IMDB"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 absolute right-4 text-slate-500 top-1/4 "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          <div>
+            <input
+              type="text"
+              className="text-sm focus:border-yellow-400 focus:border-2 px-2 placeholder:text-slate-500 text-black flex-1 w-full rounded h-8 outline-none border bg-right  m-1"
+              placeholder="Search IMDB"
+              value={query}
+              onChange={onChange}
             />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 absolute right-4 text-slate-500 top-1/4 "
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+          <div className="max-w-container  bg-white z-10 m-auto absolute ">
+            <div className=" bg-slate-400    max-w-poster">
+              {results
+                ? results.length > 0 && (
+                    <div className="grid grid-rows-4 grid-flow-col gap-4 ">
+                      {results.map((movie) => (
+                        <div key={movie.id}>
+                          <ResultCard movie={movie} />
+                        </div>
+                      ))}
+                    </div>
+                  )
+                : ""}
+            </div>
+          </div>
         </div>
+        {/* <svg class="ipc-watchlist-ribbon__bg" width="24px" height="34px" viewBox="0 0 24 34" xmlns="http://www.w3.org/2000/svg" role="presentation"><polygon class="ipc-watchlist-ribbon__bg-ribbon" fill="#000000" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343"></polygon><polygon class="ipc-watchlist-ribbon__bg-hover" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343"></polygon><polygon class="ipc-watchlist-ribbon__bg-shadow" points="24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049"></polygon></svg> */}
+
+        {/* <div className="add-content">
+          <div className="input-wrapper text-black">
+            <input
+              type="text"
+              placeholder="Search for a movie"
+              value={query}
+              onChange={onChange}
+            />
+          </div>
+
+          {results
+            ? results.length > 0 && (
+                <ul className="results">
+                  {results.map((movie) => (
+                    <li key={movie.id}>
+                      <ResultCard movie={movie} />
+                    </li>
+                  ))}
+                </ul>
+              )
+            : ""}
+        </div> */}
+
         <div className="">
           <Link to="/">
             <div className="menuContainer  hover:bg-slate-800  m-2 py-2 px-3 rounded align-middle justify-center flex">
@@ -89,9 +153,15 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <Link to="/signInCover">
+        <Link to={`${currentUser ? "/signIn" : "/signInCover"}`}>
           <div className="menuContainer  hover:bg-slate-800  m-2 py-2 px-4 rounded align-middle justify-center flex">
-            <span className="text-sm font-semibold ">Sign In</span>
+            {currentUser ? (
+              <span className="text-sm font-semibold " onClick={handleLogout}>
+                Log Out{" "}
+              </span>
+            ) : (
+              <span className="text-sm font-semibold ">Sign In </span>
+            )}
           </div>
         </Link>
 

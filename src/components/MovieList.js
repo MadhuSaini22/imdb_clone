@@ -25,11 +25,11 @@ const MovieList = () => {
   };
   return (
     <div className="max-w-container m-auto ">
-      <div className="movie__list">
-        <h2 className="list__title m-10 text-3xl">
+      <div className="">
+        <h2 className="m-10 text-3xl">
           {(type ? type : "POPULAR").toUpperCase()}
         </h2>
-        <div className="list__cards">
+        <div className="">
           {movieList.map((movie) => (
             <Card movie={movie} />
           ))}

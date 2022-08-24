@@ -35,9 +35,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="downContainerMain ">
+      <div className="downContainerMain  ">
         <div className="bg-black w-full h-full ">
-          <div className="max-w-container m-auto ">
+          <div className="max-w-container  m-auto ">
             <div className=" flex p-2">
               <div className="poster w-poster">
                 <Swiper

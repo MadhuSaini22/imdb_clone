@@ -6,12 +6,12 @@ module.exports = {
     extend: {
       container: {
         screens: {
-          DEFAULT: "1340px",
+          DEFAULT: "1286px",
         },
         center: true,
-        // padding: {
-        //   DEFAULT: "1rem",
-        // },
+        padding: {
+          DEFAULT: "1rem",
+        },
       },
       colors: {
         dark: {

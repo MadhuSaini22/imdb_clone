@@ -52,7 +52,7 @@ const ListCarousel = () => {
           >
             {popularMovies.map((movie) => (
               <SwiperSlide>
-                <Link to={`/movie/${movie.id}`}>
+                <Link  to={`/movie/${movie.id}`}>
                   <div className="flex flex-col">
                     <div className="posterImage ">
                       <img

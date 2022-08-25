@@ -11,7 +11,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply translate-x-0  border-white bg-black/30 border rounded px-6 py-8 m-0;
+  @apply translate-x-0  border-white bg-black/30 border rounded px-6 py-8 m-0 -translate-y-1/2;
 }
 .swiper-button-prev {
   @apply !left-0;
@@ -28,6 +28,9 @@
 }
 .grad {
   background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+}
+.myz{
+  z-index: 999999999;
 }
 /* 
 body {

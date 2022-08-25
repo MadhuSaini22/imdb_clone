@@ -24,9 +24,9 @@ const MovieList = () => {
       .then((data) => setMovieList(data.results));
   };
   return (
-    <div className="max-w-container m-auto ">
+    <div className="container">
       <div className="">
-        <h2 className="m-10 text-3xl">
+        <h2 className="font-bold text-3xl py-5 text-yellow-400">
           {(type ? type : "POPULAR").toUpperCase()}
         </h2>
         <div className="">

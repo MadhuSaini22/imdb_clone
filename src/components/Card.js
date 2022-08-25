@@ -14,15 +14,15 @@ const Card = ({ movie }) => {
   return (
     <>
       {isLoading ? (
-        <div className="cards">
+        <div className="">
           <SkeletonTheme color="#202020" highlightColor="#444">
-            <Skeleton height={300} duration={2} />
+            <Skeleton height={300} duration={4} />
           </SkeletonTheme>
         </div>
       ) : (
         <Link
           to={`/movie/${movie.id}`}
-          style={{ textDecoration: "none", color: "white" }}
+         
         >
           <div className="!inline-block transition duration-300 ease-in-out relative rounded overflow-hidden ml-2 cursor-pointer border-white/50 border min-w-min z-0 h-72">
             <img
@@ -31,7 +31,7 @@ const Card = ({ movie }) => {
               alt="img"
             />
             <div className=" absolute p-3 bottom-0 h-72 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">
-              <div className="card__title text-base font-black mb-1.5">
+              <div className=" text-base font-black mb-1.5">
                 {movie.original_title}
               </div>
               <div className=" text-xs m-1">

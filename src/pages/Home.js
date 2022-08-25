@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-// import "./Home.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from "react-responsive-carousel";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-// import MovieList from "../../components/movieList/MovieList";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, EffectFade, Navigation } from "swiper";
 import "swiper/css";
@@ -11,11 +8,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { ChevronRightIcon } from "@heroicons/react/outline";
-import ListCarousel from "../../components/ListCarousel";
+import ListCarousel from "../components/ListCarousel";
+import { AddWatch } from "../components/watchListLabels/AddWatch";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
+
+ 
 
   useEffect(() => {
     fetch(
@@ -35,11 +35,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="downContainerMain  ">
-        <div className="bg-black w-full h-full ">
-          <div className="max-w-container  m-auto ">
-            <div className=" flex p-2">
-              <div className="poster w-poster">
+      <div className="container ">
+        <div className="w-full ">
+          <div className="">
+            <div className="grid grid-cols-12 gap-1 py-2">
+              <div className="col-span-8">
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={30}
@@ -54,50 +54,22 @@ const Home = () => {
                 >
                   {popularMovies.map((movie) => (
                     <SwiperSlide>
-                      <Link
-                        style={{ textDecoration: "none", color: "white" }}
-                        to={`/movie/${movie.id}`}
-                      >
-                        <div className="posterImage hover:opacity-90 opacity-100">
-                          <img
-                            className="m-auto block "
-                            src={`https://image.tmdb.org/t/p/original${
-                              movie ? movie.backdrop_path : ""
-                            }`}
-                            alt="img"
-                          />
-                        </div>
-
-                        <div className="posterImage__overlay absolute p-20 bottom-0 h-4/6 flex flex-col justify-items-end items-start  transition-opacity grad">
-                          <div className="posterImage__title text-4xl mb-2">
-                            {movie ? movie.original_title : ""}
-                          </div>
-                          <div className="posterImage__runtime text-sm mb-2">
-                            {movie ? movie.release_date : ""}
-                            <span className="posterImage__rating text-sm mb-2">
-                              {movie ? movie.vote_average : ""}⭐
-                            </span>
-                          </div>
-                          <div className="posterImage__description text-xs mb-2">
-                            {movie ? movie.overview : ""}
-                          </div>
-                        </div>
-                      </Link>
+                      <AddWatch movie={movie} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               </div>
 
-              <div className="posterSecond  m-2 ">
-                <p className="mx-2 text-yellow-400 mb-3 font-bold text-title-main">
+              <div className="col-span-4 mx-2 ">
+                <p className=" text-yellow-400 mb-4 font-bold text-title-main">
                   Up next
                 </p>
-                <div className="bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width p-3 ">
+                <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width p-3 ">
                   {upcomingMovies.map((movie) => (
-                    <div className="flex ">
-                      <div className="m-1 mb-3 w-24">
+                    <div className="grid grid-cols-4 gap-2 ">
+                      <div className="col-span-1 ">
                         <img
-                          className=""
+                          className="p-1 pb-3"
                           src={`https://image.tmdb.org/t/p/original${
                             movie ? movie.poster_path : ""
                           }`}
@@ -105,7 +77,7 @@ const Home = () => {
                         />
                       </div>
 
-                      <div className="posterDesc cursor-pointer group max-w-xs  flex ml-2 p-2 flex-col ">
+                      <div className="col-span-3 cursor-pointer group max-w-xs p-1  ">
                         <svg
                           width="30"
                           height="30"
@@ -122,7 +94,7 @@ const Home = () => {
                         <div>{movie ? movie.original_title : ""}</div>
                         <div> {movie ? movie.release_date : ""}</div>
 
-                        <div className="desc truncate font-normal text-sm leading-5 text-stone-400  ">
+                        <div className=" truncate font-normal text-sm leading-5 text-stone-400  ">
                           {movie ? movie.overview : ""}
                         </div>
                       </div>
@@ -131,7 +103,7 @@ const Home = () => {
                 </div>
                 <Link
                   to="/movies/upcoming"
-                  className="flex m-1  hover:text-yellow-400  font-bold text-xl"
+                  className="flex hover:text-yellow-400  font-bold text-xl"
                 >
                   <span className="ml-2">Browse trailers</span>
                   <ChevronRightIcon className="w-5" />

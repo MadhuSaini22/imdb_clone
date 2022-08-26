@@ -54,7 +54,7 @@ const Home = () => {
                 >
                   {popularMovies.map((movie) => (
                     <SwiperSlide>
-                      <AddWatch movie={movie} />
+                      <AddWatch  key={movie.id} movie={movie} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -66,7 +66,7 @@ const Home = () => {
                 </p>
                 <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width p-3 ">
                   {upcomingMovies.map((movie) => (
-                    <div className="grid grid-cols-4 gap-2 ">
+                    <div  key={movie.id} className="grid grid-cols-4 gap-2 ">
                       <div className="col-span-1 ">
                         <img
                           className="p-1 pb-3"
@@ -94,7 +94,7 @@ const Home = () => {
                         <div>{movie ? movie.original_title : ""}</div>
                         <div> {movie ? movie.release_date : ""}</div>
 
-                        <div className=" truncate font-normal text-sm leading-5 text-stone-400  ">
+                        <div className="truncate font-normal text-sm leading-5 text-stone-400  ">
                           {movie ? movie.overview : ""}
                         </div>
                       </div>

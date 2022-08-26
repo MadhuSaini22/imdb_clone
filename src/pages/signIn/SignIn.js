@@ -125,7 +125,7 @@ function SignIn() {
         </div>
       </div>
 
-      <div className="h-screen w-full bg-transparent content-none bg-gradient-to-b from-neutral-50  border-t-2 shadow-md">
+      <div className=" w-full bg-transparent content-none bg-gradient-to-b from-neutral-50  border-t-2d">
         <div className="max-w-sm rounded px-7 m-5 py-6 mx-auto">
           <div className="flex justify-center">
             <a

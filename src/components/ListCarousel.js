@@ -53,7 +53,7 @@ const ListCarousel = () => {
             }}
           >
             {popularMovies.map((movie) => (
-              <SwiperSlide>
+              <SwiperSlide  key={movie.id}>
                 <Link to={`/movie/${movie.id}`}>
                   <div className="flex hover:opacity-90 flex-col">
                     <div className="">
@@ -96,7 +96,7 @@ const ListCarousel = () => {
             }}
           >
             {topMovies.map((movie) => (
-              <SwiperSlide>
+              <SwiperSlide  key={movie.id}>
                 <TopRated movie={movie}/>
                 {/* <Card movie={movie} /> */}
               </SwiperSlide>

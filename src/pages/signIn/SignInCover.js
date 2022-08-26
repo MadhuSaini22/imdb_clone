@@ -79,7 +79,7 @@ function SignInCover() {
             </div>
           </div>
 
-          <div className="bg-gray-100    max-w-5xl h-24  mx-auto flex justify-between">
+          <div className="bg-gray-100    max-w-5xl h-64  mx-auto flex justify-between">
             <div className="">
               <p className="text-lg text-gray-500  p-3 font-bold">
                 Recently Viewed

@@ -6,8 +6,8 @@ export const TopRated = ({ movie }) => {
 
   let storedMovie = watchlist.find((o) => o.id === movie.id);
   let storedMovieWatched = watched.find((o) => o.id === movie.id);
-  console.log("Stiredmovie", storedMovie);
-  console.log("storedMoviwList", storedMovieWatched);
+  // console.log("Stiredmovie", storedMovie);
+  // console.log("storedMoviwList", storedMovieWatched);
   const watchlistDisabled = storedMovie
     ? true
     : storedMovieWatched
@@ -28,7 +28,7 @@ export const TopRated = ({ movie }) => {
             <button 
             className="myz"
               onClick={() => {
-                alert("clicked");
+                
                 addMovieToWatchlist(movie);
               }}
             >

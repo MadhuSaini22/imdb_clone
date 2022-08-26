@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
 import "../index.css";
 import { useAuth } from "../contexts/AuthContext";
@@ -101,8 +101,6 @@ const Header = () => {
                   </div>
                 )
               : ""}
-              
-
           </div>
         </div>
       </div>
@@ -132,7 +130,7 @@ const Header = () => {
         </div> */}
 
       <div className="">
-        <Link to="/watchlist">
+        <Link  to={currentUser? "/watchlist" :"/signInCover" }>
           <div className=" hover:bg-slate-800  m-2 py-2 px-3 rounded align-middle justify-center flex">
             <svg
               width="24"
@@ -149,11 +147,18 @@ const Header = () => {
                 fill="currentColor"
               ></path>
             </svg>
-            {/* <BookmarkIcon className=" hover:opacity-100  opacity-50 w-6 h-5 mr-1 " /> */}
-            <span className="text-sm font-semibold mt-1">Watchlist 
-            <span className="m-1 bg-yellow-500 px-2 text-black rounded-xl">
-            {watchlist.length} 
-          </span></span>
+            <div>
+              <span className="text-sm font-semibold mt-1">
+                Watchlist
+                {currentUser ? (
+                  <span className="m-1 bg-yellow-500 px-2 text-black rounded-xl">
+                    {watchlist.length}
+                  </span>
+                ) : (
+                  ""
+                )}
+              </span>
+            </div>           
           </div>
         </Link>
       </div>
@@ -161,7 +166,7 @@ const Header = () => {
         <div className="menuContainer  hover:bg-slate-800  m-2 py-2 px-4 rounded align-middle justify-center flex">
           {currentUser ? (
             <span className="text-sm font-semibold " onClick={handleLogout}>
-              Log Out{" "}
+              Log Out
             </span>
           ) : (
             <span className="text-sm font-semibold ">Sign In </span>

@@ -29,6 +29,7 @@ const MovieList = () => {
         <h2 className="font-bold text-3xl py-5 text-yellow-400">
           {(type ? type : "POPULAR").toUpperCase()}
         </h2>
+        
         <div className="">
           {movieList.map((movie) => (
             <Card movie={movie} />

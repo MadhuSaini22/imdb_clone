@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import MovieList from "./components/MovieList";
-import Movie from "./pages/movieDetail/Movie";
+import Movie from "./pages/Movie";
 import Register from "./pages/signIn/Register";
 import SignInCover from "./pages/signIn/SignInCover";
 import AuthLayout from "./layout/AuthLayout";
@@ -11,15 +11,16 @@ import SignIn from "./pages/signIn/SignIn";
 import { AuthProvider } from "./contexts/AuthContext";
 // import PrivateRoute from "./PrivateRoute";
 import { Watchlist } from "./pages/WatchList";
-import { Add } from "./components/Add";
-import { Watched } from "./components/Watched";
+// import { Add } from "./components/Add";
 import { GlobalProvider } from "./contexts/GlobalState";
+import Footer from "./components/Footer";
 
 function App() {
   return (
+    <AuthProvider>
     <GlobalProvider>
       <div className="text-white">
-        <AuthProvider>
+     
           <div className="w-full bg-headerMain">
             <div className="container">
               <Header />
@@ -35,23 +36,8 @@ function App() {
               }
             />
 
-            <Route
-              path="/add"
-              element={
-                <PublicLayout>
-                  <Add />
-                </PublicLayout>
-              }
-            />
-
-            <Route
-              path="/watched"
-              element={
-                <PublicLayout>
-                  <Watched />
-                </PublicLayout>
-              }
-            />
+         
+           
 
             <Route
               index
@@ -110,9 +96,15 @@ function App() {
               }
             ></Route>
           </Routes>
-        </AuthProvider>
+          <div className="w-full bg-black">
+            <div className="container">
+              <Footer />
+            </div>
+          </div>
+              
       </div>
     </GlobalProvider>
+    </AuthProvider>
   );
 }
 

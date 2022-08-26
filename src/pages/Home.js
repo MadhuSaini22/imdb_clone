@@ -40,7 +40,7 @@ const Home = () => {
           <div className="">
             <div className="grid grid-cols-12 gap-1 py-2">
               <div className="col-span-8">
-                <Swiper
+                <Swiper 
                   slidesPerView={1}
                   spaceBetween={30}
                   loop={true}
@@ -48,12 +48,12 @@ const Home = () => {
                     delay: 2500,
                     disableOnInteraction: true,
                   }}
-                  navigation={true}
+                                               navigation={true}
                   modules={[Pagination, EffectFade, Autoplay, Navigation]}
                   className="mySwiper hover:opacity-95"
                 >
                   {popularMovies.map((movie) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={movie.id}>
                       <AddWatch  key={movie.id} movie={movie} />
                     </SwiperSlide>
                   ))}

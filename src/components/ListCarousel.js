@@ -81,7 +81,7 @@ const ListCarousel = () => {
             Featured Top Rated
           </h2>
 
-          <Swiper
+          <Swiper 
             slidesPerView={6}
             spaceBetween={20}
             slidesPerGroup={6}
@@ -97,7 +97,7 @@ const ListCarousel = () => {
           >
             {topMovies.map((movie) => (
               <SwiperSlide  key={movie.id}>
-                <TopRated movie={movie}/>
+                <TopRated  key={movie.id}  movie={movie}/>
                 {/* <Card movie={movie} /> */}
               </SwiperSlide>
             ))}

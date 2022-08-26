@@ -53,7 +53,7 @@ export const Watchlist = () => {
                     </span>
                   </div>
 
-                  <div>
+                  
                     <div>
                       <span>Sort by </span>
                       <select
@@ -69,7 +69,7 @@ export const Watchlist = () => {
                         <option value="popularity">popularity</option>
                       </select>
                     </div>
-                  </div>
+                  
                 </div>
                 <div className="border-t border-slate-300"></div>
                 <div className=" bg-white py-1">

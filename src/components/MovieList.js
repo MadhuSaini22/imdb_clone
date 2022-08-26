@@ -26,10 +26,28 @@ const MovieList = () => {
   return (
     <div className="container">
       <div className="">
-        <h2 className="font-bold text-3xl py-5 text-yellow-400">
-          {(type ? type : "POPULAR").toUpperCase()}
-        </h2>
-        
+        <div className="flex text-black">
+          <div>
+            <h2 className="font-bold text-3xl py-5 text-yellow-400">
+              {(type ? type : "POPULAR").toUpperCase()}
+            </h2>
+          </div >
+          <div className="py-5 pl-5 ">
+            <span className="text-white py-5">Filter by </span>
+            <select
+              className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
+              name="cars"
+              id="cars"
+            >
+              <option value="List Order">List Order</option>
+              <option value="Vote_count">Vote_count</option>
+              <option value="alphabatically">alphabatically</option>
+              <option value="vote_average">vote_average</option>
+              <option value="vote_average">vote_average</option>
+              <option value="popularity">popularity</option>
+            </select>
+          </div>
+        </div>
         <div className="">
           {movieList.map((movie) => (
             <Card movie={movie} />

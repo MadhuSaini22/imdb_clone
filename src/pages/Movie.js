@@ -18,6 +18,7 @@ const Movie = () => {
       .then((data) => setMovie(data));
   };
 
+  
   return (
     <div className="max-w-container m-auto ">
       <div className="w-full relative flex flex-col items-center">

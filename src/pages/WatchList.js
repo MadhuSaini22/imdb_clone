@@ -5,6 +5,34 @@ import { MovieCard } from "../components/MovieCard";
 export const Watchlist = () => {
   const { watchlist } = useContext(GlobalContext);
 
+  
+  // function Sorting() {
+  
+  //   document.getElementById("btn").style.visibility = "visible";
+  //   var e = document.getElementById("sortdown");
+  //   var value = e.value;
+  //   var selected = value.toLowerCase();
+  //   // console.log(selected);
+  //   if (selected == "price") {
+  //     sortedData.sort(function (a, b) {
+  //       if (a.price < b.price) {
+  //         return -1;
+  //       } else {
+  //         return 1;
+  //       }
+  //     });
+  //   } else if (selected == "category") {
+  //     sortedData.sort(function (a, b) {
+  //       if (a.category.toLowerCase() < b.category.toLowerCase()) return -1;
+  //       if (b.category.toLowerCase() > b.category.toLowerCase()) return 1;
+  //       else return 0;
+  //     });
+  //   }
+  //   let data = "";
+  //   data = reCall(data, sortedData, notToChange);
+  //   document.getElementById("cards").innerHTML = data;
+  // }
+  
   return (
     <div className="min-h-screen justify-center flex">
       

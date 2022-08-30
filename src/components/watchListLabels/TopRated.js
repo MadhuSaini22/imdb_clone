@@ -16,23 +16,23 @@ export const TopRated = ({ movie }) => {
 
   return (
     <div>
-      <Link to={`/movie/${movie.id}`} className="relative">
-        <div className=" hover:opacity-90 flex-col inline-block transition duration-300 ease-in-out relative rounded overflow-hidden cursor-pointer border-white/50 border min-w-min h-72">
-          <div className="relative">
+      <div className=" hover:opacity-90 flex-col inline-block transition duration-300 ease-in-out relative rounded overflow-hidden cursor-pointer border-white/50 border min-w-min h-72">
+        <div className="relative">
+          <Link to={`/movie/${movie.id}`}>
             <img
               className=" min-h-max"
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt="img"
             />
-            {/* { console.log(watchlistDisabled)} */}
-            <button 
+          </Link>
+          {/* { console.log(watchlistDisabled)} */}
+          <button
             className="myz"
-              onClick={() => {
-                
-                addMovieToWatchlist(movie);
-              }}
-            >
-              { watchlistDisabled === false ? (
+            onClick={() => {
+              addMovieToWatchlist(movie);
+            }}
+          >
+            {watchlistDisabled === false ? (
               <svg
                 className="ipc-watchlist-ribbon__bg h-12 w-11 absolute overflow-hidden    top-0 left-0 text-3xl  "
                 width="27px"
@@ -82,9 +82,8 @@ export const TopRated = ({ movie }) => {
                   className="ipc-watchlist-ribbon__bg-ribbon relative w-full h-auto "
                   fill="rgb(245,197,24)"
                   points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343"
-               
                 ></polygon>
-                
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -104,10 +103,9 @@ export const TopRated = ({ movie }) => {
                 ></polygon>
               </svg>
             )}
-            </button>
-            
-          </div>
-
+          </button>
+        </div>
+        <Link to={`/movie/${movie.id}`}>
           <div className="absolute p-3 bottom-0 h-40 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">
             <div className="card__title text-base font-black mb-1.5">
               {movie.original_title}
@@ -122,8 +120,8 @@ export const TopRated = ({ movie }) => {
               {movie.overview.slice(0, 118) + "..."}
             </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };

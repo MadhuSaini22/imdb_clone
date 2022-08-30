@@ -15,8 +15,6 @@ const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
 
- 
-
   useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US"
@@ -40,7 +38,7 @@ const Home = () => {
           <div className="">
             <div className="grid grid-cols-12 gap-1 py-2">
               <div className="col-span-8">
-                <Swiper 
+                <Swiper
                   slidesPerView={1}
                   spaceBetween={30}
                   loop={true}
@@ -48,13 +46,13 @@ const Home = () => {
                     delay: 2500,
                     disableOnInteraction: true,
                   }}
-                                               navigation={true}
+                  navigation={true}
                   modules={[Pagination, EffectFade, Autoplay, Navigation]}
                   className="mySwiper hover:opacity-95"
                 >
                   {popularMovies.map((movie) => (
                     <SwiperSlide key={movie.id}>
-                      <AddWatch  key={movie.id} movie={movie} />
+                      <AddWatch key={movie.id} movie={movie} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -66,7 +64,7 @@ const Home = () => {
                 </p>
                 <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width p-3 ">
                   {upcomingMovies.map((movie) => (
-                    <div  key={movie.id} className="grid grid-cols-4 gap-2 ">
+                    <div key={movie.id} className="grid grid-cols-4 gap-2 ">
                       <div className="col-span-1 ">
                         <img
                           className="p-1 pb-3"

@@ -14,13 +14,13 @@ import { Watchlist } from "./pages/WatchList";
 // import { Add } from "./components/Add";
 import { GlobalProvider } from "./contexts/GlobalState";
 import Footer from "./components/Footer";
+import Menu from "./pages/Menu";
 
 function App() {
   return (
     <AuthProvider>
-    <GlobalProvider>
-      <div className="text-white">
-     
+      <GlobalProvider>
+        <div className="text-white">
           <div className="w-full bg-headerMain">
             <div className="container">
               <Header />
@@ -35,9 +35,14 @@ function App() {
                 </PublicLayout>
               }
             />
-
-         
-           
+            <Route
+              path="/menu"
+              element={
+                <PublicLayout>
+                  <Menu />
+                </PublicLayout>
+              }
+            />
 
             <Route
               index
@@ -101,9 +106,8 @@ function App() {
               <Footer />
             </div>
           </div>
-              
-      </div>
-    </GlobalProvider>
+        </div>
+      </GlobalProvider>
     </AuthProvider>
   );
 }

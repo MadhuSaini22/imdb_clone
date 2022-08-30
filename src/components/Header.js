@@ -53,17 +53,16 @@ const Header = () => {
           />
         </Link>
 
-        <Link to="/">
+        <Link to="/menu">
           <div className="menuContainer group hover:bg-slate-800  m-2 py-2 px-3 rounded align-middle justify-center flex">
             <MenuIcon className=" group-hover:opacity-100  opacity-50 w-6 h-5 mr-1 " />
             <span className="text-sm font-semibold ">Menu</span>
           </div>
         </Link>
       </div>
-      {/* {console.log(JSON.stringify(error))} */}
+       
       {error && alert(JSON.stringify(error))}
-      {/* <div>{currentUser ? currentUser.email : ""}</div>
-        <button onClick={handleLogout}>logout</button> */}
+      
       <div className="flex-1  relative">
         <div>
           <input
@@ -104,30 +103,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* <svg class="ipc-watchlist-ribbon__bg" width="24px" height="34px" viewBox="0 0 24 34" xmlns="http://www.w3.org/2000/svg" role="presentation"><polygon class="ipc-watchlist-ribbon__bg-ribbon" fill="#000000" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343"></polygon><polygon class="ipc-watchlist-ribbon__bg-hover" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343"></polygon><polygon class="ipc-watchlist-ribbon__bg-shadow" points="24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049"></polygon></svg> */}
-
-      {/* <div className="add-content">
-          <div className="input-wrapper text-black">
-            <input
-              type="text"
-              placeholder="Search for a movie"
-              value={query}
-              onChange={onChange}
-            />
-          </div>
-
-          {results
-            ? results.length > 0 && (
-                <ul className="results">
-                  {results.map((movie) => (
-                    <li key={movie.id}>
-                      <ResultCard movie={movie} />
-                    </li>
-                  ))}
-                </ul>
-              )
-            : ""}
-        </div> */}
+      
 
       <div className="">
         <Link  to={currentUser? "/watchlist" :"/signInCover" }>
@@ -172,7 +148,8 @@ const Header = () => {
             <span className="text-sm font-semibold ">Sign In </span>
           )}
         </div>
-      </Link>
+      </Link> 
+
 
       {/* <Link to="/movies/popular">
         <span className="text-white w-32 justify-center grid text-base font-bold">

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useParams } from "react-router-dom";
-import { Declaration } from "postcss";
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
   const { type } = useParams();
   const [selected, setSelected] = useState([]);
-
+  const [data, setData] = useState([]);
   useEffect(() => {
     getData();
   }, []);
@@ -16,7 +15,6 @@ const MovieList = () => {
     getData();
   }, [type]);
 
-  let constMovie=[...movieList]
   const getData = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${
@@ -27,69 +25,73 @@ const MovieList = () => {
       .then((data) => setMovieList(data.results));
   };
   // console.log(selected);
-  const genres = {
-    28: "Action",
-    12: "Adventure",
-    14: "Fantasy",
-    16: "Animation",
-    878: "Science Fiction",
-    53: "Thriller",
-    18: "Drama",
-    35: "Comedy",
-    27: "Horror",
-    10749: "Romance",
-    9648: "Mystery",
-  };
+  // const genres = {
+  //   28: "Action",
+  //   12: "Adventure",
+  //   14: "Fantasy",
+  //   16: "Animation",
+  //   878: "Science Fiction",
+  //   53: "Thriller",
+  //   18: "Drama",
+  //   35: "Comedy",
+  //   27: "Horror",
+  //   10749: "Romance",
+  //   9648: "Mystery",
+  //   80: "Crime",
+  //   10751: "Family",
+  // };
 
-  let flag = false;
-  let list = [];
-  let ans;
-  setTimeout(() => {
+  useEffect(() => {
+    const list = [];
     for (var i = 0; i < movieList.length; i++) {
       let flag = false;
       const max = movieList[i];
       // console.log("max",max)
       for (var j = 0; j < max.genre_ids.length; j++) {
         const gen_id = max.genre_ids[j];
-        console.log("genid", gen_id);
+        // console.log("genid", gen_id);
         for (var k = 0; k < selected.length; k++) {
-          console.log(selected[k]);
+          // console.log(selected[k]);
           if (parseInt(gen_id) == parseInt(selected[k])) {
             flag = true;
-            console.log(flag);
-            console.log("list in",list);
+            // console.log(flag);
+            // console.log("list in", list);
           }
         }
       }
-      console.log("down", flag);
+      // console.log("down", flag);
       if (flag) {
         list.push(movieList[i]);
       }
     }
-    setTimeout(()=>{
-console.log("I'm inside setTIme out ", list)
-// setMovieList([...list]);
-console.log(movieList,"movielist")
+    setData(list);
+  }, [movieList, selected]);
 
-    },5000)
-  }, 3000);
-  console.log("mylist", list);
+  // function getMultipleSelectedValue(value) {
+    
+  //   var x = document.getElementById("alpha");
+  //   const index = selected.indexOf(value);
+  //   if (index > -1) {
+      
+  //     selected.splice(index);  
+  //     console.log("selected", selected);
+  //   }
 
-  
+   
 
-  function getMultipleSelectedValue() {
-    var x = document.getElementById("alpha");
-    for (var i = 0; i < x.options.length; i++) {
-      if (x.options[i].selected == true) {
-        setSelected([...selected, x.options[i].value]);
-      }
-    }
-    constMovie=[...list]
-
-
-
-  }
-
+  //   for (var i = 0; i < x.options.length; i++) {
+  //     if (x.options[i].selected == true) {
+  //       const index = selected.indexOf(value);
+  //       if (index > -1) {
+          
+  //         selected.splice(index, 1);  
+  //         console.log("selected", selected);
+  //       }
+  //       else setSelected([...selected, x.options[i].value]);
+  //     }
+  //   }
+  // }
+  console.log(selected,"selected valuess");
   return (
     <div className="container">
       <div className="">
@@ -100,41 +102,47 @@ console.log(movieList,"movielist")
             </h2>
           </div>
           <div className="py-5 pl-5 ">
-            <span className="text-white py-5">Filter by </span>
+            {/* <span className="text-white py-5">Filter by </span> */}
 
             <select
               className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
               name="sort"
               id="alpha"
-              onChange={() => {
-                getMultipleSelectedValue();
-              }}
+              // onChange={(e) => {
+              //   getMultipleSelectedValue(e.target.value);
+              //   console.log(e.target.value);
+              // }}
+              onClick={(e) => {
+                const index = selected.indexOf(e.target.value);
+                if (index > -1) {      
+                 selected.splice(index);  }
+               else setSelected([...selected,e.target.value]) 
+                console.log(e.target.value)}}
               multiple
             >
               <option value="" selected="selected">
                 Filter By
               </option>
               <option value="16">Animation</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="Action">Action</option>
-              <option value="Horror">Horror</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Family">Family</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Romance">Romance</option>
-              <option value="Drama">Drama</option>
-              <option value="Crime">Crime</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="History">History</option>
+              <option value="878">Science Fiction</option>
+              <option value="28">Action</option>
+              <option value="27">Horror</option>
+              <option value="53">Thriller</option>
+              <option value="10751">Family</option>
+              <option value="35">Comedy</option>
+              <option value="12">Adventure</option>
+              <option value="10749">Romance</option>
+              <option value="18">Drama</option>
+              <option value="80">Crime</option>
+              <option value="14">Fantasy</option>
+              <option value="9648">Mystery</option>
             </select>
           </div>
         </div>
         <div className="">
-          {
-          constMovie.map((movie) => (
-            <Card key={movie.id} movie={movie} />
-          ))}
+          {data && data.length > 0
+            ? data.map((movie) => <Card key={movie.id} movie={movie} />)
+            : movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
         </div>
       </div>
     </div>

@@ -1,12 +1,13 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import AppReducer from "./AppReducer";
-
+import { useAuth } from "../contexts/AuthContext";
+let UserEmail;
 // initial state
 const initialState = {
-  watchlist: localStorage.getItem("watchlist")
-    ? JSON.parse(localStorage.getItem("watchlist"))
+  watchlist: localStorage.getItem(`${UserEmail}`)
+    ? JSON.parse(localStorage.getItem(`${UserEmail}`))
     : [],
-   
+
   watched: localStorage.getItem("watched")
     ? JSON.parse(localStorage.getItem("watched"))
     : [],
@@ -14,23 +15,16 @@ const initialState = {
 // create context
 export const GlobalContext = createContext(initialState);
 
-
 // provider components
 export const GlobalProvider = (props) => {
+  const {currentUser } = useAuth();
+  UserEmail=currentUser&&currentUser.email
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  // console.log("watchlist whole",state.watchlist);
-//   // const {  currentUser } = useAuth();
-//   console.log(currentUser.email)
-//  const userEmail= currentUser.email;
-//  console.log(state.watchlist.id)
-  useEffect(() => {
 
-    // localStorage.setItem(`${userEmail}`, JSON.stringify(state.watchlist) )
-    localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
+  useEffect(() => {
+    localStorage.setItem(`${UserEmail}`, JSON.stringify(state.watchlist));
     localStorage.setItem("watched", JSON.stringify(state.watched));
   }, [state]);
-
-  // console.log("Watched list is ", localStorage.getItem("watchlist"));
 
   // actions
   const addMovieToWatchlist = (movie) => {

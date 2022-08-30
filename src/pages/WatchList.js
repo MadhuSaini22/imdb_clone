@@ -1,52 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../contexts/GlobalState";
 import { MovieCard } from "../components/MovieCard";
 
 export const Watchlist = () => {
   const { watchlist } = useContext(GlobalContext);
+  const [data, setData] = useState([]);
+  const [sortType, setSortType] = useState("popularity");
 
-  
-  // function Sorting() {
-  
-  //   document.getElementById("btn").style.visibility = "visible";
-  //   var e = document.getElementById("sortdown");
-  //   var value = e.value;
-  //   var selected = value.toLowerCase();
-  //   // console.log(selected);
-  //   if (selected == "price") {
-  //     sortedData.sort(function (a, b) {
-  //       if (a.price < b.price) {
-  //         return -1;
-  //       } else {
-  //         return 1;
-  //       }
-  //     });
-  //   } else if (selected == "category") {
-  //     sortedData.sort(function (a, b) {
-  //       if (a.category.toLowerCase() < b.category.toLowerCase()) return -1;
-  //       if (b.category.toLowerCase() > b.category.toLowerCase()) return 1;
-  //       else return 0;
-  //     });
-  //   }
-  //   let data = "";
-  //   data = reCall(data, sortedData, notToChange);
-  //   document.getElementById("cards").innerHTML = data;
-  // }
-  
+  useEffect(() => {
+    const sortArray = (type) => {
+      const types = {
+        vote_count: "vote_count",
+        title: "title",
+        vote_average: "vote_average",
+        release_date: "release_date",
+        popularity: "popularity",
+      };
+      const sortProperty = types[type];
+      const sorted = [...watchlist].sort(
+        (a, b) => b[sortProperty] - a[sortProperty]
+      );
+      setData(sorted);
+    };
+
+    sortArray(sortType);
+  }, [sortType, watchlist]);
+
   return (
     <div className="min-h-screen justify-center flex">
-      
-
       {watchlist.length > 0 ? (
-       
-
         <div className="container justify-center font-coverFont flex">
           <div className="max-w-5xl">
             <div className="grid  grid-cols-5 gap-1 ">
               <div className="bg-gray-100 col-span-3">
-                <h1
-                  className="text-gray-800  pl-5 text-2xl  pt-3"
-                >
+                <h1 className="text-gray-800  pl-5 text-2xl  pt-3">
                   Your Watchlist
                 </h1>
                 <div className="pl-5 text-sm flex text-gray-400 font-coverFont font-bold pb-5">
@@ -81,35 +68,45 @@ export const Watchlist = () => {
                     </span>
                   </div>
 
-                  
-                    <div>
-                      <span>Sort by </span>
-                      <select
-                        className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
-                        name="cars"
-                        id="cars"
-                      >
-                        <option value="List Order">List Order</option>
-                        <option value="Vote_count">Vote_count</option>
-                        <option value="alphabatically">alphabatically</option>
-                        <option value="vote_average">vote_average</option>
-                        <option value="vote_average">vote_average</option>
-                        <option value="popularity">popularity</option>
-                      </select>
-                    </div>
-                  
+                  <div>
+                    <span>Sort by </span>
+                    <select
+                      className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
+                      name=" "
+                      id="sortdown"
+                      onChange={(e) => {setSortType(e.target.value) 
+                        console.log(e.target.value)}}
+                    >
+                      <option value="List Order">List Order</option>
+                      <option value="vote_count">Vote_count</option>
+                      <option value="title">alphabatically</option>
+                      <option value="vote_average">vote_average</option>
+                      <option value="release_date">release_date</option>
+                      <option value="popularity">popularity</option>
+                    </select>
+                  </div>
                 </div>
                 <div className="border-t border-slate-300"></div>
                 <div className=" bg-white py-1">
-                  {watchlist.map((movie) => (
-                    <div key={movie.id}>
-                      <MovieCard
-                        movie={movie}
-                        key={movie.id}
-                        type="watchlist"
-                      />
-                    </div>
-                  ))}
+                  {data && data.length > 0
+                    ? data.map((movie) => (
+                        <div key={movie.id}>
+                          <MovieCard
+                            movie={movie}
+                            key={movie.id}
+                            type="watchlist"
+                          />
+                        </div>
+                      ))
+                    : watchlist.map((movie) => (
+                        <div key={movie.id}>
+                          <MovieCard
+                            movie={movie}
+                            key={movie.id}
+                            type="watchlist"
+                          />
+                        </div>
+                      ))}
                 </div>
               </div>
               <div className=" text-black col-span-2 px-3  bg-gray-100">

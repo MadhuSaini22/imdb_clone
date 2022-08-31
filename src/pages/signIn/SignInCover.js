@@ -25,7 +25,7 @@ function SignInCover() {
                 <LabelCard icon={logoImg} authName="Sign In with Google" />
                 <div className="flex mt-5 mb-7 justify-center text-sm">
                   <p className="flex  text-dark-forgot">
-                    Show more options{" "}
+                    Show more options
                     <ChevronDownIcon className="h-5 ml-1 w-4" />
                   </p>
                 </div>

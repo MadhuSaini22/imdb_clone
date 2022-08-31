@@ -74,8 +74,10 @@ export const Watchlist = () => {
                       className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
                       name=" "
                       id="sortdown"
-                      onChange={(e) => {setSortType(e.target.value) 
-                        console.log(e.target.value)}}
+                      onChange={(e) => {
+                        setSortType(e.target.value);
+                        console.log(e.target.value);
+                      }}
                     >
                       <option value="List Order">List Order</option>
                       <option value="vote_count">Vote_count</option>
@@ -111,13 +113,13 @@ export const Watchlist = () => {
               </div>
               <div className=" text-black col-span-2 px-3  bg-gray-100">
                 <div className=" pt-3 font-semibold font-sans text-lg ">
-                  Create a new list{" "}
+                  Create a new list
                 </div>
                 <div className="pt-3  text-xs text-gray-600">
                   List your movie, TV & celebrity picks.
                 </div>
                 <div className="pt-3 text-dark-forgot  text-xs">
-                  Create a new list{" "}
+                  Create a new list
                 </div>
                 <div className="mt-4 border-t border-slate-300"></div>
                 <div className=" text-dark-forgot pt-4 text-xs">

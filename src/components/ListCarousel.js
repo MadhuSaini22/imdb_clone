@@ -12,7 +12,11 @@ import "swiper/css/effect-fade";
 const ListCarousel = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
- 
+  const loop = true;
+
+  function StopLoop() {
+    loop = false;
+  }
 
   useEffect(() => {
     fetch(
@@ -42,18 +46,20 @@ const ListCarousel = () => {
             slidesPerView={6}
             spaceBetween={20}
             slidesPerGroup={6}
-            loopFillGroupWithBlank={true}
             navigation={true}
             modules={[Pagination, Autoplay, EffectFade, Navigation]}
             className="mySwiper  "
             loop={true}
             autoplay={{
               delay: 2000,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
+            
+          
           >
             {popularMovies.map((movie) => (
-              <SwiperSlide  key={movie.id}>
+              <SwiperSlide key={movie.id}>
                 <Link to={`/movie/${movie.id}`}>
                   <div className="flex hover:opacity-90 flex-col">
                     <div className="">
@@ -81,23 +87,22 @@ const ListCarousel = () => {
             Featured Top Rated
           </h2>
 
-          <Swiper 
+          <Swiper
             slidesPerView={6}
             spaceBetween={20}
             slidesPerGroup={6}
-            loopFillGroupWithBlank={true}
             navigation={true}
             modules={[Pagination, Autoplay, EffectFade, Navigation]}
             className="mySwiper  hover:opacity-95"
             loop={true}
             autoplay={{
               delay: 2500,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
             }}
           >
             {topMovies.map((movie) => (
-              <SwiperSlide  key={movie.id}>
-                <TopRated  key={movie.id}  movie={movie}/>
+              <SwiperSlide key={movie.id}>
+                <TopRated key={movie.id} movie={movie} />
                 {/* <Card movie={movie} /> */}
               </SwiperSlide>
             ))}

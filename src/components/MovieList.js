@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useParams } from "react-router-dom";
+import Multiselect from "multiselect-react-dropdown";
 
+const multiselectRef = React.createRef();
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
   const { type } = useParams();
@@ -25,21 +27,22 @@ const MovieList = () => {
       .then((data) => setMovieList(data.results));
   };
   // console.log(selected);
-  // const genres = {
-  //   28: "Action",
-  //   12: "Adventure",
-  //   14: "Fantasy",
-  //   16: "Animation",
-  //   878: "Science Fiction",
-  //   53: "Thriller",
-  //   18: "Drama",
-  //   35: "Comedy",
-  //   27: "Horror",
-  //   10749: "Romance",
-  //   9648: "Mystery",
-  //   80: "Crime",
-  //   10751: "Family",
-  // };
+  const genres = [
+    { id: 28, value: "Action" },
+    { id: 12, value: "Adventure" },
+    { id: 14, value: "Fantasy" },
+    { id: 16, value: "Animation" },
+    { id: 878, value: "Science Fiction" },
+    { id: 53, value: "Thriller" },
+    { id: 18, value: "Drama" },
+    { id: 35, value: "Comedy" },
+    { id: 27, value: "Horror" },
+    { id: 10749, value: "Romance" },
+    { id: 9648, value: "Mystery" },
+    { id: 80, value: "Crime" },
+    { id: 10751, value: "Family" },
+  ];
+  const [options] = useState(genres);
 
   useEffect(() => {
     const list = [];
@@ -67,35 +70,23 @@ const MovieList = () => {
     setData(list);
   }, [movieList, selected]);
 
-  // function getMultipleSelectedValue(value) {
-    
-  //   var x = document.getElementById("alpha");
-  //   const index = selected.indexOf(value);
-  //   if (index > -1) {
-      
-  //     selected.splice(index);  
-  //     console.log("selected", selected);
-  //   }
+  function getSelectedValues() {
+    const items = multiselectRef.current.getSelectedItems();
 
-   
+    console.log("items", items);
 
-  //   for (var i = 0; i < x.options.length; i++) {
-  //     if (x.options[i].selected == true) {
-  //       const index = selected.indexOf(value);
-  //       if (index > -1) {
-          
-  //         selected.splice(index, 1);  
-  //         console.log("selected", selected);
-  //       }
-  //       else setSelected([...selected, x.options[i].value]);
-  //     }
-  //   }
-  // }
-  console.log(selected,"selected valuess");
+    console.log(selected, "sselected");
+
+    const newArray = items.map((element) => element.id);
+    console.log(newArray);
+    setSelected(newArray);
+  }
+  // console.log("selec", selected);
+
   return (
     <div className="container">
-      <div className="">
-        <div className="flex text-black">
+      <div className="h-screen">
+        <div className="flex text-black ">
           <div>
             <h2 className="font-bold text-3xl py-5 text-yellow-400">
               {(type ? type : "POPULAR").toUpperCase()}
@@ -104,39 +95,15 @@ const MovieList = () => {
           <div className="py-5 pl-5 ">
             {/* <span className="text-white py-5">Filter by </span> */}
 
-            <select
-              className="rounded border px-2 w-48 py-1 outline-none border-gray-300  "
-              name="sort"
-              id="alpha"
-              // onChange={(e) => {
-              //   getMultipleSelectedValue(e.target.value);
-              //   console.log(e.target.value);
-              // }}
-              onClick={(e) => {
-                const index = selected.indexOf(e.target.value);
-                if (index > -1) {      
-                 selected.splice(index);  }
-               else setSelected([...selected,e.target.value]) 
-                console.log(e.target.value)}}
-              multiple
-            >
-              <option value="" selected="selected">
-                Filter By
-              </option>
-              <option value="16">Animation</option>
-              <option value="878">Science Fiction</option>
-              <option value="28">Action</option>
-              <option value="27">Horror</option>
-              <option value="53">Thriller</option>
-              <option value="10751">Family</option>
-              <option value="35">Comedy</option>
-              <option value="12">Adventure</option>
-              <option value="10749">Romance</option>
-              <option value="18">Drama</option>
-              <option value="80">Crime</option>
-              <option value="14">Fantasy</option>
-              <option value="9648">Mystery</option>
-            </select>
+            <Multiselect
+              options={options}
+              displayValue={"value"}
+              selectedValues={genres.selectedValues}
+              onSelect={getSelectedValues}
+              onRemove={getSelectedValues}
+              placeholder="Filter By"
+              ref={multiselectRef}
+            />
           </div>
         </div>
         <div className="">

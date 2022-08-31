@@ -44,7 +44,8 @@ const Home = () => {
                   loop={true}
                   autoplay={{
                     delay: 2500,
-                    disableOnInteraction: true,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter:true
                   }}
                   navigation={true}
                   modules={[Pagination, EffectFade, Autoplay, Navigation]}
@@ -67,7 +68,7 @@ const Home = () => {
                     <div key={movie.id} className="grid grid-cols-4 gap-2 ">
                       <div className="col-span-1 ">
                         <img
-                          className="p-1 pb-3"
+                          className="p-1 pb-3 h-[125px]"
                           src={`https://image.tmdb.org/t/p/original${
                             movie ? movie.poster_path : ""
                           }`}
@@ -101,7 +102,7 @@ const Home = () => {
                 </div>
                 <Link
                   to="/movies/upcoming"
-                  className="flex hover:text-yellow-400  font-bold text-xl"
+                  className="flex hover:text-yellow-400  font-bold mt-2 text-xl"
                 >
                   <span className="ml-2">Browse trailers</span>
                   <ChevronRightIcon className="w-5" />

@@ -35,14 +35,7 @@ function App() {
                 </PublicLayout>
               }
             />
-            <Route
-              path="/menu"
-              element={
-                <PublicLayout>
-                  <Menu />
-                </PublicLayout>
-              }
-            />
+            
 
             <Route
               index

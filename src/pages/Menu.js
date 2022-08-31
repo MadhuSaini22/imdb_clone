@@ -12,7 +12,7 @@ function Menu() {
                 className=" h-12"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
                 alt="img"
-              /> 
+              />
             </Link>
           </div>
           <Link to="/ ">
@@ -108,7 +108,7 @@ function Menu() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
-                class="ipc-icon ipc-icon--television mx-3"
+                className="ipc-icon ipc-icon--television mx-3"
                 id="iconContext-television"
                 viewBox="0 0 24 24"
                 fill="#FACC15 "

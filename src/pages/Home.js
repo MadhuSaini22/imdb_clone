@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState  } from "react";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,8 +36,8 @@ const Home = () => {
       <div className="container ">
         <div className="w-full ">
           <div className="">
-            <div className="grid grid-cols-12 gap-1 py-2">
-              <div className="col-span-8">
+            <div className="grid grid-cols-12 gap-1 md:px-4 sm:px-4 py-2">
+              <div className="lg:col-span-8 md:col-span-7  col-span-12">
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={30}
@@ -59,11 +59,11 @@ const Home = () => {
                 </Swiper>
               </div>
 
-              <div className="col-span-4 mx-2 ">
+              <div className="lg:col-span-4 md:col-span-5  col-span-12  mx-2 ">
                 <p className=" text-yellow-400 mb-4 font-bold text-title-main">
                   Up next
                 </p>
-                <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width p-3 ">
+                <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width sm:w-full p-3 ">
                   {upcomingMovies.map((movie) => (
                     <div key={movie.id} className="grid grid-cols-4 gap-2 ">
                       <div className="col-span-1 ">
@@ -76,7 +76,7 @@ const Home = () => {
                         />
                       </div>
 
-                      <div className="col-span-3 cursor-pointer group max-w-xs p-1  ">
+                      <div className="col-span-3   cursor-pointer group max-w-xs p-1  ">
                         <svg
                           width="30"
                           height="30"

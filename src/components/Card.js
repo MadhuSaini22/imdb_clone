@@ -20,8 +20,11 @@ const Card = ({ movie }) => {
           </SkeletonTheme>
         </div>
       ) : (
-        <Link to={`/movie/${movie.id}`}>
-          <div className="!inline-block transition duration-300 ease-in-out relative rounded overflow-hidden ml-2 cursor-pointer border-white/50 border min-w-min z-0 h-72">
+        <Link
+          to={`/movie/${movie.id}`}
+         
+        >
+          <div className="sm:p-3 !inline-block transition duration-300 ease-in-out relative rounded overflow-hidden ml-2 cursor-pointer border-white/50 border min-w-min z-0 h-72">
             <img
               className=" min-h-max h-72"
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -34,7 +37,7 @@ const Card = ({ movie }) => {
               <div className=" text-xs m-1">
                 {movie.release_date}
                 <span className="float-right">
-                  {movie.vote_average} <i className="fas fa-star"></i>
+                  {movie.vote_average} <i className="fas fa-star"></i>{" "}
                 </span>
               </div>
               <div className="truncate">

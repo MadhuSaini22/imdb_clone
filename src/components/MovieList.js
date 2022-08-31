@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useParams } from "react-router-dom";
 import Multiselect from "multiselect-react-dropdown";
+import Heading from "./Heading";
 
 const multiselectRef = React.createRef();
 const MovieList = () => {
@@ -85,16 +86,12 @@ const MovieList = () => {
 
   return (
     <div className="container">
-      <div className="h-screen">
+      <div className="h-auto">
         <div className="flex text-black ">
-          <div>
-            <h2 className="font-bold text-3xl py-5 text-yellow-400">
-              {(type ? type : "POPULAR").toUpperCase()}
-            </h2>
+          <div className="justify-center flex items-center">
+            <Heading heading={`${(type ? type : "POPULAR").toUpperCase()}`} />
           </div>
           <div className="py-5 pl-5 ">
-            {/* <span className="text-white py-5">Filter by </span> */}
-
             <Multiselect
               options={options}
               displayValue={"value"}

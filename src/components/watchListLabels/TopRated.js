@@ -20,11 +20,11 @@ export const TopRated = ({ movie }) => {
 
   return (
     <div>
-      <div className=" hover:opacity-90 flex-col inline-block transition duration-300 ease-in-out relative rounded overflow-hidden cursor-pointer border-white/50 border min-w-min h-72">
+      <div className=" hover:opacity-90 flex-col relative rounded overflow-hidden cursor-pointer  ">
         <div className="relative">
           <Link to={`/movie/${movie.id}`}>
             <img
-              className=" min-h-max"
+              className=""
               src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
               alt="img"
             />
@@ -153,7 +153,7 @@ export const TopRated = ({ movie }) => {
           </button>
         </div>
         <Link to={`/movie/${movie.id}`}>
-          <div className="absolute p-3 bottom-0 h-40 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">
+          <div className="absolute mb-3 p-3 bottom-0 h-40 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">
             <div className="card__title text-base font-black mb-1.5">
               {movie.original_title}
             </div>

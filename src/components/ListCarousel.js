@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import Heading from "./Heading";
 
 const ListCarousel = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -36,11 +37,12 @@ const ListCarousel = () => {
 
   return (
     <>
-      <div className="container">
-        <div className=" ">
-          <h2 className="font-bold text-3xl my-3 text-yellow-400">
+      <div className="container ">
+        <div className=" sm:w-full p-3">
+          {/* <h2 className="font-bold text-3xl my-3 text-yellow-400">
             Featured Popular
-          </h2>
+          </h2> */}
+          <Heading heading=" Featured Popular" />
 
           <Swiper
             slidesPerView={6}
@@ -55,8 +57,32 @@ const ListCarousel = () => {
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            
-          
+            breakpoints={{
+              350: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              700: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+              1880: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+            }}
           >
             {popularMovies.map((movie) => (
               <SwiperSlide key={movie.id}>
@@ -82,11 +108,8 @@ const ListCarousel = () => {
           </Swiper>
         </div>
 
-        <div className="mt-10">
-          <h2 className="font-bold text-3xl my-3 text-yellow-400">
-            Featured Top Rated
-          </h2>
-
+        <div className="mt-10  p-3 ">
+          <Heading heading="Featured Top Rated" />
           <Swiper
             slidesPerView={6}
             spaceBetween={20}
@@ -98,6 +121,32 @@ const ListCarousel = () => {
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
+            }}
+            breakpoints={{
+              350: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              700: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
+              1880: {
+                slidesPerView: 6,
+                spaceBetween: 20,
+              },
             }}
           >
             {topMovies.map((movie) => (

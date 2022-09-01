@@ -29,9 +29,9 @@ export const Watchlist = () => {
   return (
     <div className="min-h-screen justify-center flex">
       {watchlist.length > 0 ? (
-        <div className="container justify-center font-coverFont flex">
+        <div className="container  justify-center font-coverFont flex">
           <div className="max-w-5xl">
-            <div className="grid  grid-cols-5 gap-1 ">
+            <div className="lg:grid  lg:grid-cols-5 lg:gap-1 md:grid  md:grid-cols-5 md:gap-1 sm:grid  sm:grid-cols-5 sm:gap-1">
               <div className="bg-gray-100 col-span-3">
                 <h1 className="text-gray-800  pl-5 text-2xl  pt-3">
                   Your Watchlist

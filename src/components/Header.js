@@ -55,7 +55,7 @@ const Header = () => {
         </Link>
 
         <Link to="">
-          <div className=" group hover:bg-slate-800  m-2 py-2 px-3 rounded align-middle justify-center flex">
+          <div className=" group hover:bg-slate-800  m-2 py-2 px-2 rounded align-middle justify-center flex">
             <MenuIcon className=" group-hover:opacity-100  opacity-50 w-6 h-5 mr-1 " />
             <span
               className="text-sm font-semibold "
@@ -69,10 +69,10 @@ const Header = () => {
         </Link>
       </div>
       {menu == true ? (
-        <div className="bg-dark-lightBlack justify-center flex h-full w-full myclass fixed z-[2] inset-0">
-          <div className="w-2/4 mt-5 ">
+        <div className="bg-dark-lightBlack justify-center flex h-full w-full myclass fixed z-[2] inset-0 pt-20">
+          <div className="lg:w-2/4 mt-5 lg:px-0 px-4">
             <div className="flex mt-2 justify-between">
-              <div className="  grid  justify-center ">
+              <div className="   justify-center ">
                 <Link to="/ ">
                   <img
                     className=" h-12"
@@ -104,7 +104,7 @@ const Header = () => {
                 </div>
               </Link>
             </div>
-            <div className="flex justify-between mt-11">
+            <div className="flex lg:flex-row md:flex-row sm:flex-row flex-col justify-between mt-11  ">
               <div className="flex flex-col ">
                 <div className="flex">
                   <svg
@@ -122,7 +122,7 @@ const Header = () => {
                   </svg>
                   <p className="font-bold text-2xl">Movies</p>
                 </div>
-                <div className="flex flex-col mt-1">
+                <div className="flex flex-col mt-1 mb-5">
                   <div className="ml-12 mt-3">
                     <Link className="hover:underline" to="/movies/popular">
                       <span className="text-white  ">Most Popular Movies</span>
@@ -157,7 +157,7 @@ const Header = () => {
                   </svg>
                   <p className="font-bold text-2xl">Watch</p>
                 </div>
-                <div className="flex flex-col mt-1">
+                <div className="flex flex-col mt-1 mb-5">
                   <div className="hover:underline ml-12 mt-3">
                     <a href="https://www.imdb.com/">Explore IMDb</a>
                   </div>
@@ -190,7 +190,7 @@ const Header = () => {
                   </svg>
                   <p className="font-bold text-2xl">Watch</p>
                 </div>
-                <div className="flex flex-col mt-1">
+                <div className="flex flex-col mt-1 mb-5">
                   <div className="hover:underline ml-12 mt-3">
                     <a href="https://www.imdb.com/">Explore IMDb</a>
                   </div>
@@ -214,17 +214,17 @@ const Header = () => {
       {error && alert(JSON.stringify(error))}
 
       <div className="flex-1  relative">
-        <div>
+        <div className="">
           <input
             type="text"
-            className="text-sm focus:border-yellow-400 focus:border-2 px-2 placeholder:text-slate-500 text-black flex-1 w-full rounded h-8 outline-none border bg-right  m-1"
+            className="text-sm focus:border-yellow-400 focus:border-2 px-2 placeholder:text-slate-500 text-black flex-1 w-full rounded h-8 outline-none border bg-right  m-1 hidden sm:block lg:block md:block"
             placeholder="Search IMDB"
             value={query}
             onChange={onChange}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 absolute right-4 text-slate-500 top-1/4 "
+            className="h-5 w-5 lg:absolute  md:absolute  sm:absolute right-0 lg:right-3 lg:text-slate-500 md:text-slate-500  sm:text-slate-500  lg:top-1/4 md:top-1/4 sm:top-1/4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -237,7 +237,7 @@ const Header = () => {
             />
           </svg>
         </div>
-        <div className="container z-10 m-auto absolute ">
+        <div className="  z-10 m-auto absolute ">
           <div className="bg-dark-lightBlack">
             {results
               ? results.length > 0 && (
@@ -256,7 +256,7 @@ const Header = () => {
 
       <div className="">
         <Link to={currentUser ? "/watchlist" : "/signInCover"}>
-          <div className=" hover:bg-slate-800  m-2 py-2 px-3 rounded align-middle justify-center flex">
+          <div className=" hover:bg-slate-800  m-2 py-2 px-2  lg:px-3 rounded align-middle justify-center flex">
             <svg
               width="24"
               height="24"
@@ -289,7 +289,7 @@ const Header = () => {
         </Link>
       </div>
       <Link to={`${currentUser ? "/signIn" : "/signInCover"}`}>
-        <div className="menuContainer  hover:bg-slate-800  m-2 py-2 px-4 rounded align-middle justify-center flex">
+        <div className="menuContainer  hover:bg-slate-800 py-2 px-2  rounded align-middle justify-center flex">
           {currentUser ? (
             <span className="text-sm font-semibold " onClick={handleLogout}>
               Log Out

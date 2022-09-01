@@ -1,4 +1,4 @@
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -33,11 +33,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="container ">
-        <div className="w-full ">
+      <div className=" lg:container ">
+        <div className="lg:w-full ">
           <div className="">
             <div className="grid grid-cols-12 gap-1 md:px-4 sm:px-4 py-2">
-              <div className="lg:col-span-8 md:col-span-7  col-span-12">
+              <div className="lg:col-span-8 md:col-span-7 lg:px-0 px-3 col-span-12">
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={30}
@@ -45,7 +45,7 @@ const Home = () => {
                   autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
-                    pauseOnMouseEnter:true
+                    pauseOnMouseEnter: true,
                   }}
                   navigation={true}
                   modules={[Pagination, EffectFade, Autoplay, Navigation]}
@@ -63,7 +63,7 @@ const Home = () => {
                 <p className=" text-yellow-400 mb-4 font-bold text-title-main">
                   Up next
                 </p>
-                <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 w-upcoming-width sm:w-full p-3 ">
+                <div className=" bg-dark-gr bg-gradient-to-b1 from-gray-9001 p-3 ">
                   {upcomingMovies.map((movie) => (
                     <div key={movie.id} className="grid grid-cols-4 gap-2 ">
                       <div className="col-span-1 ">

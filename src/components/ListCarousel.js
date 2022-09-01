@@ -121,6 +121,7 @@ const ListCarousel = () => {
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             breakpoints={{
               350: {
@@ -151,6 +152,7 @@ const ListCarousel = () => {
           >
             {topMovies.map((movie) => (
               <SwiperSlide key={movie.id}>
+                
                 <TopRated key={movie.id} movie={movie} />
                 {/* <Card movie={movie} /> */}
               </SwiperSlide>

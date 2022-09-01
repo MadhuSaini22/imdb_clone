@@ -86,12 +86,12 @@ const MovieList = () => {
 
   return (
     <div className="container">
-      <div className="h-auto">
-        <div className="flex text-black ">
+      <div className=" ">
+        <div className="flex lg:flex-row md:flex-row  sm:flex-row flex-col text-black  lg:px-0 px-3">
           <div className="justify-center flex items-center">
             <Heading heading={`${(type ? type : "POPULAR").toUpperCase()}`} />
           </div>
-          <div className="py-5 pl-5 ">
+          <div className="p-5   ">
             <Multiselect
               options={options}
               displayValue={"value"}
@@ -103,10 +103,12 @@ const MovieList = () => {
             />
           </div>
         </div>
-        <div className="">
-          {data && data.length > 0
-            ? data.map((movie) => <Card key={movie.id} movie={movie} />)
-            : movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
+        <div className="justify-center items-center">
+          <div>
+            {data && data.length > 0
+              ? data.map((movie) => <Card key={movie.id} movie={movie} />)
+              : movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
+          </div>
         </div>
       </div>
     </div>

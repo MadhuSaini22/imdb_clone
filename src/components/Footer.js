@@ -4,8 +4,8 @@ function Footer() {
   return (
     <div className="">
       <div className="justify-center items">
-        <div className="flex justify-center pt-10 ">
-          <div className="m-3 cursor-pointer hover:bg-slate-800 rounded-full p-3   align-middle justify-center flex ">
+        <div className="flex justify-center ">
+          <div className="m-3 cursor-pointer hover:bg-slate-800 rounded-full p-3  align-middle justify-center flex ">
             <svg
               className="w-6 h-6  "
               xmlns="http://www.w3.org/2000/svg"
@@ -56,35 +56,35 @@ function Footer() {
             </svg>
           </div>
         </div>
-        <div className=" text-white flex justify-center">
-          <div className="mt-3 mb-2 ml-7">
+        <div className="lg:px-3 md:px-3 sm:px-3 px-5 text-white flex justify-center items-center">
+          <div className="mt-3 px-2 justify-center items-center">
             <Link to="/movies/popular">
-              Explore Popular Movies
+              Explore Popular
               <i
                 className="newTab fas fa-external-link-alt "
                 style={{ fontSize: "10px", paddingLeft: "4px" }}
               ></i>
             </Link>
           </div>
-          <div className="mt-3 mb-2 ml-7">
+          <div className="mt-3 px-2 justify-center items-center">
             <Link to="/movies/top_rated">
-              Explore Top Rated Movies
+              Explore Top Rated
               <i
                 className="newTab fas fa-external-link-alt "
                 style={{ fontSize: "10px", paddingLeft: "4px" }}
               ></i>
             </Link>
           </div>
-          <div className="mt-3 mb-2 ml-7">
+          <div className="mt-3 px-2 justify-center items-center">
             <Link to="/movies/upcoming">
-              Explore Upcoming Movies
+              Explore Upcoming
               <i
                 className="newTab fas fa-external-link-alt "
                 style={{ fontSize: "10px", paddingLeft: "4px" }}
               ></i>
             </Link>
           </div>
-          <div className="mt-3 mb-2 ml-7">
+          <div className="mt-3 px-2 justify-center items-center">
             <a href="https://www.imdb.com/">
               Explore IMDb
               <i
@@ -93,7 +93,7 @@ function Footer() {
               ></i>
             </a>
           </div>
-          <div className="mt-3 mb-2 ml-7">
+          <div className="mt-3 px-2 justify-center items-center">
             <Link to="/signInCover">
               Sign In
               <i
@@ -103,53 +103,7 @@ function Footer() {
             </Link>
           </div>
         </div>
-        <div className=" text-white flex justify-center">
-          <div className="mt-3 mb-2 ml-7">
-            <Link to="/movies/popular">
-              Explore Popular Movies
-              <i
-                className="newTab fas fa-external-link-alt "
-                style={{ fontSize: "10px", paddingLeft: "4px" }}
-              ></i>
-            </Link>
-          </div>
-          <div className="mt-3 mb-2 ml-7">
-            <Link to="/movies/top_rated">
-              Explore Top Rated Movies
-              <i
-                className="newTab fas fa-external-link-alt "
-                style={{ fontSize: "10px", paddingLeft: "4px" }}
-              ></i>
-            </Link>
-          </div>
-          <div className="mt-3 mb-2 ml-7">
-            <Link to="/movies/upcoming">
-              Explore Upcoming Movies
-              <i
-                className="newTab fas fa-external-link-alt "
-                style={{ fontSize: "10px", paddingLeft: "4px" }}
-              ></i>
-            </Link>
-          </div>
-          <div className="mt-3 mb-2 ml-7">
-            <a href="https://www.imdb.com/">
-              Explore IMDb
-              <i
-                className="newTab fas fa-external-link-alt "
-                style={{ fontSize: "10px", paddingLeft: "4px" }}
-              ></i>
-            </a>
-          </div>
-          <div className="mt-3 mb-2 ml-7">
-            <Link to="/signInCover">
-              Sign In
-              <i
-                className="newTab fas fa-external-link-alt "
-                style={{ fontSize: "10px", paddingLeft: "4px" }}
-              ></i>
-            </Link>
-          </div>
-        </div>
+
         <div className="justify-center flex pt-5"> an Amazon Company</div>
         <div className="justify-center flex text-xs pb-5 pt-5 text-zinc-400">
           {" "}

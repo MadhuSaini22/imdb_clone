@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 export const AddWatch = ({ movie }) => {
-  const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
   const history = useNavigate();
+  const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
+
   let storedMovie = watchlist.find((o) => o.id === movie.id);
   let storedMovieWatched = watched.find((o) => o.id === movie.id);
 
@@ -147,7 +148,6 @@ export const AddWatch = ({ movie }) => {
               ></polygon>
             </svg>
           )}
- 
         </button>
       </div>
       <Link to={`/movie/${movie.id}`}>
@@ -161,7 +161,9 @@ export const AddWatch = ({ movie }) => {
               {movie ? movie.vote_average : ""}⭐
             </span>
           </div>
-          <div className="line-clamp-2 lg:text-lg md:text-lg sm:text-lg text-sm lg:mb-2">{movie ? movie.overview : ""}</div>
+          <div className="line-clamp-2 lg:text-lg md:text-lg sm:text-lg text-sm lg:mb-2">
+            {movie ? movie.overview : ""}
+          </div>
         </div>
       </Link>
     </div>

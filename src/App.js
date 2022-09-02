@@ -14,7 +14,6 @@ import { Watchlist } from "./pages/WatchList";
 // import { Add } from "./components/Add";
 import { GlobalProvider } from "./contexts/GlobalState";
 import Footer from "./components/Footer";
-import Menu from "./pages/Menu";
 
 function App() {
   return (

@@ -10,7 +10,7 @@ module.exports = {
         },
         center: true,
         padding: {
-          DEFAULT: "0rem",
+          DEFAULT: "1rem",
         },
       },
       colors: {

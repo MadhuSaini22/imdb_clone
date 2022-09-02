@@ -3,6 +3,7 @@ import Card from "./Card";
 import { useParams } from "react-router-dom";
 import Multiselect from "multiselect-react-dropdown";
 import Heading from "./Heading";
+import { IMAGE_END } from "../Config";
 
 const multiselectRef = React.createRef();
 const MovieList = () => {
@@ -20,9 +21,9 @@ const MovieList = () => {
 
   const getData = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${
+      `    https://api.themoviedb.org/3/movie/${
         type ? type : "popular"
-      }?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
+      }?api_key=4e44d9029b1270a757cddc766a1bcb63&${IMAGE_END}`
     )
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
@@ -50,20 +51,17 @@ const MovieList = () => {
     for (var i = 0; i < movieList.length; i++) {
       let flag = false;
       const max = movieList[i];
-      // console.log("max",max)
+
       for (var j = 0; j < max.genre_ids.length; j++) {
         const gen_id = max.genre_ids[j];
-        // console.log("genid", gen_id);
+
         for (var k = 0; k < selected.length; k++) {
-          // console.log(selected[k]);
           if (parseInt(gen_id) == parseInt(selected[k])) {
             flag = true;
-            // console.log(flag);
-            // console.log("list in", list);
           }
         }
       }
-      // console.log("down", flag);
+
       if (flag) {
         list.push(movieList[i]);
       }
@@ -82,16 +80,18 @@ const MovieList = () => {
     console.log(newArray);
     setSelected(newArray);
   }
+  console.log(data.length);
   // console.log("selec", selected);
-
+  let counter = 18;
+  const arr = [...Array(counter).keys()];
   return (
     <div className="container">
-      <div className=" ">
-        <div className="flex lg:flex-row md:flex-row  sm:flex-row flex-col text-black  lg:px-0 px-3">
-          <div className="justify-center flex items-center">
+      <div className="px-3 min-h-screen">
+        <div className="flex lg:flex-row md:flex-row   justify-between items-center  sm:flex-row flex-col text-black  ">
+          <div className="justify-center flex py-2 items-center">
             <Heading heading={`${(type ? type : "POPULAR").toUpperCase()}`} />
           </div>
-          <div className="p-5   ">
+          <div className="py-2  ">
             <Multiselect
               options={options}
               displayValue={"value"}
@@ -103,13 +103,28 @@ const MovieList = () => {
             />
           </div>
         </div>
-        <div className="justify-center items-center">
-          <div>
-            {data && data.length > 0
-              ? data.map((movie) => <Card key={movie.id} movie={movie} />)
-              : movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
+
+        {movieList.length > 0 ? (
+          <div className="justify-center items-center">
+            <div className="grid gap-5 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 ">
+              {data && data.length > 0
+                ? data.map((movie) => <Card key={movie.id} movie={movie} />)
+                : movieList.map((movie) => (
+                    <Card key={movie.id} movie={movie} />
+                  ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="justify-center items-center animate-pulse  ">
+            <div className="grid gap-5 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-3 grid-cols-2 ">
+              {arr.map((index) => {
+                return (
+                  <div id={index} class="rounded bg-slate-200 h-64 !w-48"></div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

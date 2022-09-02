@@ -7,7 +7,6 @@ import Button from "../../components/Button";
 function Register() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const nameRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
@@ -61,33 +60,9 @@ function Register() {
                   <h2 className="text-3xl font-normal">Create account</h2>
                   {currentUser && currentUser.email}
                 </div>
-                {/* <div className="rounded  mb-3  mt-1"> */}
-                {/* <Input
-                    labelName={"Your name"}
-                    placeholderValue={"First and last name"}
-                    idName={"name"}
-                    typeName={"text"}
-                    refName={nameRef}
-                  /> */}
-                {/* <label for="" className=" font-bold text-sm">
-                    Your name
-                  </label>
-                  <input
-                   className="w-full text-slate-600 text-sm py-1 focus:border-orange-600 focus:shadow-input-focus px-2 border border-gray-400 rounded outline-none "
-                    placeholder="First and last name"
-                    id="name"
-                    type="text"
-                    ref={nameRef}
-                    required */}
-                {/* /> */}
-                {/* </div> */}
+               
                 <div className="rounded  mb-3  mt-1">
-                  {/* <Input
-                    labelName={"Email"}
-                    idName={"email"}
-                    typeName={"email"}
-                    refName={"emailRef"}
-                  /> */}
+                  
                   <label for="" className=" font-bold text-sm">
                     Email
                   </label>
@@ -101,13 +76,7 @@ function Register() {
                 </div>
 
                 <div className="rounded  mb-3  mt-1">
-                  {/* <Input
-                    labelName={"Password"}
-                    idName={"password"}
-                    placeholderValue={"at least 8 characters"}
-                    typeName={"password"}
-                    refName={"passwordRef"}
-                  /> */}
+                  
                   <label for="" className=" font-bold text-sm">
                     Password
                   </label>
@@ -124,12 +93,7 @@ function Register() {
                   </p>
                 </div>
                 <div className="rounded  mb-3  mt-1">
-                  {/* <Input
-                    labelName={"Re-enter password"}
-                    typeName={"password"}
-                    idName={"cpassword"}
-                    refName={"confirmPasswordRef"}
-                  /> */}
+                   
                   <label for="" className=" font-bold text-sm">
                     Re-enter password
                   </label>

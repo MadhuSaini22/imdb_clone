@@ -11,7 +11,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply translate-x-0  border-white bg-black/30 border rounded px-6 py-8 m-0 -translate-y-1/2;
+  @apply translate-x-0  border-white bg-black/30 border 2xl:visible xl:!visible !invisible rounded px-6 py-8 m-0 -translate-y-1/2;
 }
 .swiper-button-prev {
   @apply !left-0;
@@ -21,7 +21,7 @@
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  @apply !text-xl !font-bold text-white  hover:text-amber-400;
+  @apply !text-xl !font-bold text-white  hover:!text-amber-400;
 }
 .w-96 {
   width: 53rem;

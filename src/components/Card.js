@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Link } from "react-router-dom";
+import { IMAGE_PATH } from "../Config";
 
 const Card = ({ movie }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,12 +23,12 @@ const Card = ({ movie }) => {
       ) : (
         <Link
           to={`/movie/${movie.id}`}
-         
+          className="flex justify-center items-center"
         >
-          <div className=" py-1 pl-3 !inline-block transition duration-300 ease-in-out relative rounded overflow-hidden cursor-pointer z-0 h-72">
+          <div className="!inline-block transition duration-300 ease-in-out relative rounded overflow-hidden cursor-pointer z-0  ">
             <img
-              className=" min-h-max h-72"
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+              className=" "
+              src={`  ${IMAGE_PATH}/${movie.poster_path}`}
               alt="img"
             />
             <div className=" absolute p-3 bottom-0 h-72 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">

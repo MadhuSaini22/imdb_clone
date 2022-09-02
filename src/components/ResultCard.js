@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React  from "react";
 import Moment from "react-moment";
 
 export const ResultCard = ({ movie }) => {
@@ -14,19 +14,11 @@ export const ResultCard = ({ movie }) => {
             alt={`${movie.title} Poster`}
           />
         ) : (
-          //   <img
-          //   className="p-1 pb-3"
-          //   src={`https://image.tmdb.org/t/p/original${
-          //     movie ? movie.poster_path : ""
-          //   }`}
-          //   alt="img"
-          // />
-
           <div className="" />
         )}
       </div>
 
-      <div className="col-span-11">
+      <div className="col-span-11 justify-start flex items-center">
         <div className="">
           <h3 className="">{movie.title}</h3>
           <h4 className="text-sm text-gray-400">

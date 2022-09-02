@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalState";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { IMAGE_PATH } from "../../Config";
 
 export const TopRated = ({ movie }) => {
   const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
@@ -25,7 +26,7 @@ export const TopRated = ({ movie }) => {
           <Link to={`/movie/${movie.id}`}>
             <img
               className=""
-              src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+              src={`${IMAGE_PATH}${movie.poster_path}`}
               alt="img"
             />
           </Link>

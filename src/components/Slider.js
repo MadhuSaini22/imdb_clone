@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Link } from "react-router-dom";
 import { TopRated } from "./watchListLabels/TopRated";
+import { IMAGE_PATH } from "../Config";
 function Slider({ movies, type }) {
   return (
     <div>
@@ -24,7 +25,6 @@ function Slider({ movies, type }) {
           pauseOnMouseEnter: true,
         }}
         hashNavigation={true}
-       
         breakpoints={{
           350: {
             slidesPerView: 1.5,
@@ -60,13 +60,13 @@ function Slider({ movies, type }) {
                   <div className="">
                     <img
                       className=""
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      src={`  ${IMAGE_PATH}/${movie.poster_path}`}
                       alt="img"
                     />
                   </div>
 
                   <div className="">
-                    <div className="hover:underline text-large">
+                    <div className="hover:underline mt-3 font-bold text-large">
                       {movie ? movie.original_title : ""}
                     </div>
                   </div>

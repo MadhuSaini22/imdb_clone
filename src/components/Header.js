@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../contexts/GlobalState";
 import { ResultCard } from "./ResultCard";
+import { IMAGE_END, TMDB_KEY } from "../Config";
 
 const Header = () => {
   const [query, setQuery] = useState("");
@@ -17,7 +18,7 @@ const Header = () => {
     setQuery(e.target.value);
 
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&${IMAGE_END}&page=1&include_adult=false&query=${e.target.value}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -299,22 +300,6 @@ const Header = () => {
           )}
         </div>
       </Link>
-
-      {/* <Link to="/movies/popular">
-        <span className="text-white w-32 justify-center grid text-base font-bold">
-          Popular
-        </span>
-      </Link>
-      <Link to="/movies/top_rated">
-        <span className="text-white w-32 justify-center grid text-base font-bold">
-          Top Rated
-        </span>
-      </Link>
-      <Link to="/movies/upcoming">
-        <span className="text-white w-32 justify-center grid text-base font-bold">
-          Upcoming
-        </span>
-      </Link> */}
     </div>
   );
 };

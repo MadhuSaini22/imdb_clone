@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { IMAGE_END, IMAGE_PATH } from "../Config";
 
 const Movie = () => {
   const [currentMovieDetail, setMovie] = useState();
@@ -12,7 +13,7 @@ const Movie = () => {
 
   const getData = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
+      `    https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&${ IMAGE_END}`
     )
       .then((res) => res.json())
       .then((data) => setMovie(data));
@@ -24,7 +25,7 @@ const Movie = () => {
         <div className=" justify-center items-center w-11/12">
           <img
             className=" object-cover  justify-center items-center  w-full h-500"
-            src={`https://image.tmdb.org/t/p/original${
+            src={`  ${process.env.REACT_APP_IMAGE_PATH}/${
               currentMovieDetail ? currentMovieDetail.backdrop_path : ""
             }`}
             alt="img"
@@ -35,7 +36,7 @@ const Movie = () => {
             <div>
               <img
                 className="w-80 rounded-lg  "
-                src={`https://image.tmdb.org/t/p/original${
+                src={`  ${process.env.REACT_APP_IMAGE_PATH}/${
                   currentMovieDetail ? currentMovieDetail.poster_path : ""
                 }`}
                 alt="img"
@@ -97,42 +98,42 @@ const Movie = () => {
         <div className=" flex justify-center items-center   lg:flex-row flex-col  mt-5">
           <div className="lg:text-3xl text-2xl mt-2">Useful Links</div>
           <div className="flex  flex-row  ">
-          <div className="justify-center items-center  mt-2 flex">
-            {currentMovieDetail && currentMovieDetail.homepage && (
-              <a
-                href={currentMovieDetail.homepage}
-                target="_blank"
-                rel="noreferrer"
-                className="ml-4 "
-              >
-                <p>
-                  <span className="  bg-red-600 flex justify-center items-middle py-3 px-4 rounded-2xl cursor-pointer w-40 text-black font-bold ">
-                    Homepage <i className="ml-3 "></i>
-                  </span>
-                </p>
-              </a>
-            )}
+            <div className="justify-center items-center  mt-2 flex">
+              {currentMovieDetail && currentMovieDetail.homepage && (
+                <a
+                  href={currentMovieDetail.homepage}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-4 "
+                >
+                  <p>
+                    <span className="  bg-red-600 flex justify-center items-middle py-3 px-4 rounded-2xl cursor-pointer w-40 text-black font-bold ">
+                      Homepage <i className="ml-3 "></i>
+                    </span>
+                  </p>
+                </a>
+              )}
+            </div>
+            <div className="justify-center  mt-2 items-center flex">
+              {currentMovieDetail && currentMovieDetail.imdb_id && (
+                <a
+                  href={
+                    "https://www.imdb.com/title/" + currentMovieDetail.imdb_id
+                  }
+                  target="_blank"
+                  style={{ textDecoration: "none" }}
+                  rel="noreferrer"
+                  className="ml-4"
+                >
+                  <p>
+                    <span className="bg-yellow-400 flex justify-center items-middle py-3 px-4 rounded-2xl cursor-pointer w-40 text-black font-bold">
+                      IMDb<i className="newTab fas fa-external-link-alt"></i>
+                    </span>
+                  </p>
+                </a>
+              )}
+            </div>{" "}
           </div>
-         
-          <div  className="justify-center  mt-2 items-center flex">
-            {currentMovieDetail && currentMovieDetail.imdb_id && (
-              <a
-                href={
-                  "https://www.imdb.com/title/" + currentMovieDetail.imdb_id
-                }
-                target="_blank"
-                style={{ textDecoration: "none" }}
-                rel="noreferrer"
-                className="ml-4"
-              >
-                <p>
-                  <span className="bg-yellow-400 flex justify-center items-middle py-3 px-4 rounded-2xl cursor-pointer w-40 text-black font-bold">
-                    IMDb<i className="newTab fas fa-external-link-alt"></i>
-                  </span>
-                </p>
-              </a>
-            )}
-          </div> </div>
         </div>
         <div className=" lg:text-3xl text-2xl mt-5">Production companies</div>
         <div className=" w-10/12 flex justify-center items-end mb-5">
@@ -144,10 +145,11 @@ const Movie = () => {
                   <span className="flex flex-col items-center justify-center">
                     <img
                       className="w-52 m-6"
-                      src={
-                        "https://image.tmdb.org/t/p/original" +
+                      src= {
+                        `${IMAGE_PATH }` +
                         company.logo_path
                       }
+                       
                       alt="img"
                     />
                     <span>{company.name}</span>

@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { TopRated } from "./watchListLabels/TopRated";
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectFade, Navigation } from "swiper";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import Heading from "./Heading";
 import Slider from "./Slider";
+import { IMAGE_END, TMDB_KEY } from "../Config";
 
 const ListCarousel = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
-  const loop = true;
-
-  function StopLoop() {
-    loop = false;
-  }
-
+  
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US"
+      `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_KEY}&${IMAGE_END}`
     )
       .then((res) => res.json())
       .then((data) => setPopularMovies(data.results));
@@ -30,7 +22,7 @@ const ListCarousel = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US"
+      ` https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_KEY}&${IMAGE_END}`
     )
       .then((res) => res.json())
       .then((data) => setTopMovies(data.results));

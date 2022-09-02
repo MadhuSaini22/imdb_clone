@@ -14,10 +14,10 @@
   @apply translate-x-0  border-white bg-black/30 border 2xl:visible xl:!visible !invisible rounded px-6 py-8 m-0 -translate-y-1/2;
 }
 .swiper-button-prev {
-  @apply !left-0;
+  @apply !left-0  ;
 }
 .swiper-button-next {
-  @apply !right-0;
+  @apply !right-0  ;
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
@@ -25,13 +25,7 @@
 }
 .w-96 {
   width: 53rem;
-}
-.grad {
-  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
-}
-.myz{
-  z-index: 999999999;
-}
+}  
 /* 
 body {
   margin: 0;
@@ -50,10 +44,7 @@ code {
   background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
   display: block;
   width: 100%;
-  height: 44px;
- 
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0), #fff);
-  /* z-index: 1; */
+  height: 44px;  
   content: "";
 }
 .myclass{

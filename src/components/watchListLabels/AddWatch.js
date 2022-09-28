@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalState";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import {IMAGE_PATH } from "../../Config";
+import { IMAGE_PATH } from "../../Config";
 export const AddWatch = ({ movie }) => {
   const history = useNavigate();
   const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
@@ -22,12 +22,13 @@ export const AddWatch = ({ movie }) => {
         <Link to={`/movie/${movie.id}`}>
           <img
             className="m-auto block group-hover:opacity-90"
-            src={` ${IMAGE_PATH}/${
-              movie ? movie.backdrop_path : ""
-            }`}
+            src={` ${IMAGE_PATH}/${movie ? movie.backdrop_path : ""}`}
             alt="img"
           />
         </Link>
+
+        {/* Watchlist button At top of slider */}
+
         <button
           disabled={watchlistDisabled}
           onClick={() => {
@@ -150,6 +151,9 @@ export const AddWatch = ({ movie }) => {
           )}
         </button>
       </div>
+
+      {/* Description for slider  */}
+
       <Link to={`/movie/${movie.id}`}>
         <div className=" absolute px-20 py-10 lg:bottom-1 lg:h-4/6 md:h-5/6 sm:h-5/6 max-h-80  flex flex-col justify-center  items-start  transition-opacity bottom-0 ">
           <div className=" lg:text-4xl md:text-2xl sm:text-2xl text-lg lg:mb-2">

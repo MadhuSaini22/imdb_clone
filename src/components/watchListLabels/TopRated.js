@@ -9,8 +9,7 @@ export const TopRated = ({ movie }) => {
 
   let storedMovie = watchlist.find((o) => o.id === movie.id);
   let storedMovieWatched = watched.find((o) => o.id === movie.id);
-  // console.log("Stiredmovie", storedMovie);
-  // console.log("storedMoviwList", storedMovieWatched);
+
   const watchlistDisabled = storedMovie
     ? true
     : storedMovieWatched
@@ -30,7 +29,9 @@ export const TopRated = ({ movie }) => {
               alt="img"
             />
           </Link>
-          {/* { console.log(watchlistDisabled)} */}
+
+          {/* Watchlist button At top of slider */}
+
           <button
             disabled={watchlistDisabled}
             onClick={() => {
@@ -153,6 +154,9 @@ export const TopRated = ({ movie }) => {
             )}
           </button>
         </div>
+
+        {/* Description for slider  */}
+
         <Link to={`/movie/${movie.id}`}>
           <div className="absolute mb-3 p-3 bottom-0 h-40 flex flex-col w-10/12 justify-end opacity-0 hover:opacity-100">
             <div className="card__title text-base font-black mb-1.5">

@@ -2,6 +2,7 @@ import React from "react";
 
 function Input({ labelName, idName, typeName, placeholderValue }) {
   return (
+    // Main Input component
     <div>
       <label for="" className=" font-bold text-sm">
         {labelName}
@@ -11,7 +12,6 @@ function Input({ labelName, idName, typeName, placeholderValue }) {
         id={`${idName ? idName : ""}`}
         placeholder={`${placeholderValue ? placeholderValue : ""}`}
         type={`${typeName ? typeName : ""}`}
-        // ref={`${refName ? refName : ""}`}
         required
       />
     </div>

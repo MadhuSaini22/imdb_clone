@@ -105,8 +105,7 @@ function Footer() {
         </div>
 
         <div className="justify-center flex pt-5"> an Amazon Company</div>
-        <div className="justify-center flex text-xs pb-5 pt-5 text-zinc-400">
-          {" "}
+        <div className="justify-center flex text-xs pb-5 pt-5 text-zinc-400">      
           © 1990-2022 by IMDb.com, Inc.
         </div>
       </div>

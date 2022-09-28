@@ -47,6 +47,7 @@ const Header = () => {
   return (
     <div className="flex px-2 justify-center items-center ">
       <div className="flex ">
+        {/* Header Image */}
         <Link to="/" className="">
           <img
             className="mt-2 h-8"
@@ -54,7 +55,7 @@ const Header = () => {
             alt="img"
           />
         </Link>
-
+        {/* Menu */}
         <Link to="">
           <div className=" group hover:bg-slate-800  m-2 py-2 px-2 rounded align-middle justify-center flex">
             <MenuIcon className=" group-hover:opacity-100  opacity-50 w-6 h-5 mr-1 " />
@@ -70,6 +71,8 @@ const Header = () => {
         </Link>
       </div>
       {menu == true ? (
+        // Menu body
+
         <div className="bg-dark-lightBlack justify-center flex h-full w-full myclass fixed z-[2] inset-0 pt-20">
           <div className="lg:w-2/4 mt-5 lg:px-0 px-4">
             <div className="flex mt-2 justify-between">
@@ -215,6 +218,7 @@ const Header = () => {
       {error && alert(JSON.stringify(error))}
 
       <div className="flex-1  relative">
+        {/* Search box */}
         <div className="">
           <input
             type="text"
@@ -238,6 +242,9 @@ const Header = () => {
             />
           </svg>
         </div>
+
+        {/* Search Results */}
+
         <div className="  z-10 m-auto absolute ">
           <div className="bg-dark-lightBlack">
             {results
@@ -254,7 +261,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+      {/* WatchList component */}
       <div className="">
         <Link to={currentUser ? "/watchlist" : "/signInCover"}>
           <div className=" hover:bg-slate-800  m-2 py-2 px-2  lg:px-3 rounded align-middle justify-center flex">
@@ -289,6 +296,7 @@ const Header = () => {
           </div>
         </Link>
       </div>
+      {/* Sign In / Log out button */}
       <Link to={`${currentUser ? "/signIn" : "/signInCover"}`}>
         <div className="menuContainer  hover:bg-slate-800 py-2 px-2  rounded align-middle justify-center flex">
           {currentUser ? (

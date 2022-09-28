@@ -12,6 +12,7 @@ const Card = ({ movie }) => {
     }, 1500);
   }, []);
 
+  // This is component for rendering individual card
   return (
     <>
       {isLoading ? (

@@ -18,6 +18,7 @@ export const AddWatch = ({ movie }) => {
   const { currentUser } = useAuth();
   return (
     <div>
+      {/* Popular movies Slider  */}
       <div className="relative group ">
         <Link to={`/movie/${movie.id}`}>
           <img

@@ -1,7 +1,7 @@
 import React from "react";
 function Label({ icon, authName }) {
   return (
-      // Main Button component
+      // Main label component
     <div>
       <button className="border rounded m-3 p-1 flex justufy-center w-64 h-8 font-coverFont text-sm font-bold text-slate-600 border-slate-300">
         <div className=" ">

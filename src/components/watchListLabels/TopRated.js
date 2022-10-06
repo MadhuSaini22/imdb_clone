@@ -20,6 +20,7 @@ export const TopRated = ({ movie }) => {
 
   return (
     <div>
+      {/* top rated movies slider */}
       <div className=" hover:opacity-90 flex-col relative rounded overflow-hidden cursor-pointer  ">
         <div className="relative">
           <Link to={`/movie/${movie.id}`}>
